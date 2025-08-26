@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ----- LINKS ----- -->
+    <link rel="stylesheet" href="./index.css" />
+    <script defer src="./index.js"></script>
+    <title>Robin Courte</title>
+  </head>
+  <body>
+    <!-- Loader -->
+    <div id="loader">
+      <div class="loader-content">
+        <div id="percentage">0%</div>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ----- HEADER ----- -->
+
+    <header>
+      <div class="navbar" id="navbar">
+        <ul class="links">
+          <li>
+            <a href="#navbar">ACCEUIL</a>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a class="portfolio" href="#p-page"
+              >PORTFOLIO
+              <!-- <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"
+                  fill="currentColor"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M13 7C13 6.44772 12.5523 6 12 6C11.4477 6 11 6.44772 11 7V11H7C6.44772 11 6 11.4477 6 12C6 12.5523 6.44772 13 7 13H11V17C11 17.5523 11.4477 18 12 18C12.5523 18 13 17.5523 13 17V13H17C17.5523 13 18 12.5523 18 12C18 11.4477 17.5523 11 17 11H13V7Z"
+                  fill="currentColor"
+                />
+              </svg> -->
+            </a>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a href="#a-propos">À PROPOS</a>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a href="#contact">CONTACT</a>
+            <div class="divider"></div>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- ----- MAIN ----- -->
+
+    <main>
+      <!-- ----- HOME ----- -->
+
+      <div class="home">
+        <img src="./IMG/Head.png" alt="My head" />
+        <div class="obj">
+          <h1>ROBIN COURTE</h1>
+          <div class="flou"></div>
+          <div class="block"></div>
+        </div>
+      </div>
+
+      <!-- ----- PORTFOLIO ----- -->
+
+      <div class="p-page" id="p-page">
+        <ul class="cards">
+          <li class="dessin">
+            <img src="./IMG/dessin.JPG" alt="draws" />
+            <div class="co-flou"></div>
+            <div class="text"><h1>DESSINS</h1></div>
+
+            <div class="up">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir plus</h1>
+            </div>
+            <div class="down">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.567 8.02947L20.9105 1.76929L22.3153 3.19282L15.9916 9.43352L19.5614 9.44772L19.5534 11.4477L12.5535 11.4199L12.5813 4.41992L14.5813 4.42788L14.567 8.02947Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M7.97879 14.5429L4.40886 14.5457L4.40729 12.5457L11.4073 12.5402L11.4128 19.5402L9.41277 19.5417L9.40995 15.9402L3.09623 22.2306L1.68463 20.8138L7.97879 14.5429Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir moins</h1>
+            </div>
+            <div class="page"></div>
+          </li>
+          <li class="maquette">
+            <img src="./IMG/Maquette .PNG" alt="model" />
+            <div class="co-flou"></div>
+            <h1>MAQUETTES</h1>
+            <div class="up">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir plus</h1>
+            </div>
+            <div class="down">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.567 8.02947L20.9105 1.76929L22.3153 3.19282L15.9916 9.43352L19.5614 9.44772L19.5534 11.4477L12.5535 11.4199L12.5813 4.41992L14.5813 4.42788L14.567 8.02947Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M7.97879 14.5429L4.40886 14.5457L4.40729 12.5457L11.4073 12.5402L11.4128 19.5402L9.41277 19.5417L9.40995 15.9402L3.09623 22.2306L1.68463 20.8138L7.97879 14.5429Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir moins</h1>
+            </div>
+          </li>
+          <li class="p-scolaire">
+            <img src="./IMG/Projet Scolaire.png" alt="school project" />
+            <div class="co-flou"></div>
+            <h1>PROJET SCOLAIRE</h1>
+            <div class="up">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir plus</h1>
+            </div>
+            <div class="down">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.567 8.02947L20.9105 1.76929L22.3153 3.19282L15.9916 9.43352L19.5614 9.44772L19.5534 11.4477L12.5535 11.4199L12.5813 4.41992L14.5813 4.42788L14.567 8.02947Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M7.97879 14.5429L4.40886 14.5457L4.40729 12.5457L11.4073 12.5402L11.4128 19.5402L9.41277 19.5417L9.40995 15.9402L3.09623 22.2306L1.68463 20.8138L7.97879 14.5429Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir moins</h1>
+            </div>
+          </li>
+          <li class="c-3d">
+            <img src="./IMG/C-3D.png" alt="3D conception" />
+            <div class="co-flou"></div>
+            <h1>CONCEPTION 3D</h1>
+            <div class="up">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir plus</h1>
+            </div>
+            <div class="down">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.567 8.02947L20.9105 1.76929L22.3153 3.19282L15.9916 9.43352L19.5614 9.44772L19.5534 11.4477L12.5535 11.4199L12.5813 4.41992L14.5813 4.42788L14.567 8.02947Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M7.97879 14.5429L4.40886 14.5457L4.40729 12.5457L11.4073 12.5402L11.4128 19.5402L9.41277 19.5417L9.40995 15.9402L3.09623 22.2306L1.68463 20.8138L7.97879 14.5429Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir moins</h1>
+            </div>
+          </li>
+          <li class="photo">
+            <img src="./IMG/Photo.JPG" alt="photography" />
+            <div class="co-flou"></div>
+            <h1>PHOTOGRAPHIE</h1>
+            <div class="up">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir plus</h1>
+            </div>
+            <div class="down">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.567 8.02947L20.9105 1.76929L22.3153 3.19282L15.9916 9.43352L19.5614 9.44772L19.5534 11.4477L12.5535 11.4199L12.5813 4.41992L14.5813 4.42788L14.567 8.02947Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M7.97879 14.5429L4.40886 14.5457L4.40729 12.5457L11.4073 12.5402L11.4128 19.5402L9.41277 19.5417L9.40995 15.9402L3.09623 22.2306L1.68463 20.8138L7.97879 14.5429Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir moins</h1>
+            </div>
+          </li>
+          <li class="c-objet">
+            <img src="./IMG/C-objet.PNG" alt="object conception" />
+            <div class="co-flou"></div>
+            <h1>CONCEPTION D'OBJETS</h1>
+            <div class="up">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir plus</h1>
+            </div>
+            <div class="down">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.567 8.02947L20.9105 1.76929L22.3153 3.19282L15.9916 9.43352L19.5614 9.44772L19.5534 11.4477L12.5535 11.4199L12.5813 4.41992L14.5813 4.42788L14.567 8.02947Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M7.97879 14.5429L4.40886 14.5457L4.40729 12.5457L11.4073 12.5402L11.4128 19.5402L9.41277 19.5417L9.40995 15.9402L3.09623 22.2306L1.68463 20.8138L7.97879 14.5429Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <h1>Voir moins</h1>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ----- A PROPOS ----- -->
+
+      <div class="a-propos" id="a-propos">
+        <div class="me"></div>
+        <div class="about"></div>
+      </div>
+
+      <!-- ----- CONTACT ----- -->
+
+      <div class="contact" id="contact">
+        <h1>CONTACTEZ-MOI</h1>
+        <div class="contact-i">
+          <h1>INFORMATIONS</h1>
+          <div class="mail"></div>
+          <div class="tel"></div>
+        </div>
+        <div class="contact-t">
+          <div>
+            <select id="contact-method">
+              <option value="" disabled selected>Choisir le moyen...</option>
+              <option value="mail">Mail</option>
+              <option value="tel">Téléphone</option>
+            </select>
+          </div>
+
+          <div>
+            <textarea
+              id="message"
+              rows="5"
+              cols="30"
+              placeholder="Écris ton message ici..."
+            ></textarea>
+          </div>
+
+          <div>
+            <button id="send-btn">Envoyer</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ----- FOOTER ----- -->
+
+    <footer>
+      <div class="links-f">
+        <ul class="links">
+          <li>
+            <a href="#navbar">ACCEUIL</a>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a class="portfolio" href="#p-page">PORTFOLIO </a>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a href="#a-propos">À PROPOS</a>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a href="#contact">CONTACT</a>
+            <div class="divider"></div>
+          </li>
+        </ul>
+      </div>
+      <div class="list"></div>
+      <div class="mention"></div>
+    </footer>
+  </body>
+</html>
