@@ -1,12 +1,14 @@
+// --------------- LOADER ---------------
+
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
   const fill = document.querySelector(".progress-fill");
   const percentage = document.getElementById("percentage");
 
   let progress = 0;
-  const duration = 2000; // 2s
-  const intervalTime = 20; // mise à jour toutes les 20ms
-  const increment = (intervalTime / duration) * 100; // pourcentage par intervalle
+  const duration = 2000;
+  const intervalTime = 20;
+  const increment = (intervalTime / duration) * 100;
 
   const interval = setInterval(() => {
     progress += increment;
@@ -18,13 +20,11 @@ window.addEventListener("load", () => {
     if (progress >= 100) {
       clearInterval(interval);
 
-      // Fade out du loader
       loader.classList.add("fade-out");
       setTimeout(() => {
         loader.style.display = "none";
 
-        // Scroll ou affichage sur la barre de navigation
-        const navbar = document.querySelector(".navbar"); // ou "#navbar"
+        const navbar = document.querySelector(".navbar");
         if (navbar) {
           navbar.scrollIntoView({ behavior: "smooth" });
         }
@@ -33,25 +33,56 @@ window.addEventListener("load", () => {
   }, intervalTime);
 });
 
+// --------------- MENU ---------------
+
+const navbar = document.querySelector(".links");
+const other = document.querySelector(".burger-menu-button");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        other.classList.add("visible");
+      } else {
+        other.classList.remove("visible");
+      }
+    });
+  },
+  {
+    threshold: 0,
+  }
+);
+
+observer.observe(navbar);
+
+// ---------------- BURGER MENU ---------------
+
+const burgerMenuButton = document.querySelector(".burger-menu-button");
+const burgerMenu = document.querySelector(".burger-menu");
+
+burgerMenuButton.onclick = function () {
+  burgerMenu.classList.toggle("open");
+  burgerMenuButton.classList.toggle("open");
+};
+
+// --------------- CARDS SYSTEMS ---------------
+
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".cards li");
   const portfolioSection = document.querySelector(".p-page");
-  const page = document.querySelector(".page");
 
   cards.forEach((card) => {
     const up = card.querySelector(".up");
     const down = card.querySelector(".down");
     const h1s = card.querySelectorAll("h1");
     const coFlous = card.querySelectorAll(".co-flou");
+    const page = card.querySelector(".page");
 
-    up.addEventListener("click", () => {
-      // Scroll vers la section portfolio
+    const openCard = () => {
       portfolioSection.scrollIntoView({ behavior: "smooth", block: "start" });
 
-      // Bloquer le scroll de la page
       document.body.style.overflow = "hidden";
 
-      // Fermer toutes les cartes et réinitialiser les textes/co-flou
       cards.forEach((c) => {
         c.classList.remove("open");
         c.classList.add("close");
@@ -60,53 +91,87 @@ document.addEventListener("DOMContentLoaded", () => {
         c.querySelectorAll("h1, .co-flou").forEach((el) =>
           el.classList.remove("close")
         );
+        c.querySelector(".page")?.classList.remove("open");
       });
 
-      // Ouvrir la carte cliquée
       card.classList.add("open");
       card.classList.remove("close");
       up.classList.add("close");
       down.classList.add("open");
 
-      // Masquer les textes et co-flou
       h1s.forEach((el) => el.classList.add("close"));
       coFlous.forEach((el) => el.classList.add("close"));
+      burgerMenuButton.classList.add("hidden");
 
-      // Ajouter .open à la page
-      page.classList.add("open");
+      page?.classList.add("open");
 
-      // Scroll interne de la carte
       card.style.overflowY = "auto";
-      card.style.maxHeight = "100vh"; // limite la carte à la hauteur de l'écran
-    });
+      card.style.maxHeight = "100vh";
+    };
 
-    down.addEventListener("click", () => {
-      // Fermer la carte
+    const closeCard = () => {
       card.classList.remove("open");
       up.classList.remove("close");
       down.classList.remove("open");
 
-      // Débloquer le scroll de la page
       document.body.style.overflow = "";
 
-      // Réafficher les autres cartes
       cards.forEach((c) => {
         if (c !== card) c.classList.remove("close");
       });
 
-      // Retirer .close des textes/co-flou
       h1s.forEach((el) => el.classList.remove("close"));
       coFlous.forEach((el) => el.classList.remove("close"));
+      burgerMenuButton.classList.remove("hidden");
 
-      // Retirer .open de la page
-      page.classList.remove("open");
+      page?.classList.remove("open");
 
-      // Retirer scroll interne
       card.style.overflowY = "";
       card.style.maxHeight = "";
-    });
+    };
+
+    up.addEventListener("click", openCard);
+    down.addEventListener("click", closeCard);
   });
 });
+
+// ----- CONTACT INFOS -----
+
+// ----- MAIL -----
+
+const textElementMail = document.querySelector(".mail h1");
+
+textElementMail.addEventListener("click", () => {
+  const text = textElementMail.innerText;
+
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      alert("Texte copié dans le presse-papier !");
+    })
+    .catch((err) => {
+      console.error("Impossible de copier : ", err);
+    });
+});
+
+// ----- TEL -----
+
+const textElementTel = document.querySelector(".tel h1");
+
+textElementTel.addEventListener("click", () => {
+  const text = textElementTel.innerText;
+
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      alert("Texte copié dans le presse-papier !");
+    })
+    .catch((err) => {
+      console.error("Impossible de copier : ", err);
+    });
+});
+
+// ----- CONTACT BUTTON -----
 
 const sendBtn = document.getElementById("send-btn");
 
@@ -115,11 +180,11 @@ sendBtn.addEventListener("click", () => {
   const message = document.getElementById("message").value;
 
   if (method === "mail") {
-    const email = "robin.courte@gmaim.com"; // remplacer par ton email
+    const email = "robin.courte@gmaim.com";
     const mailtoLink = `mailto:${email}?body=${encodeURIComponent(message)}`;
     window.location.href = mailtoLink;
   } else if (method === "tel") {
-    const phone = "+330670526468"; // remplacer par ton numéro
+    const phone = "+330670526468";
     // Pour appeler directement :
     const telLink = `tel:${phone}`;
     // Pour envoyer un SMS (mobile) :
@@ -127,3 +192,226 @@ sendBtn.addEventListener("click", () => {
     window.location.href = telLink;
   }
 });
+
+// --------------- CAROUSEL DESSIN ---------------
+
+document.querySelectorAll(".carousel-stage").forEach((stage) => {
+  const slides = Array.from(stage.querySelectorAll(".slide"));
+  const dotsEl = stage.parentElement.querySelector(".dots"); // supposé juste au-dessus
+  let current = 0;
+
+  // Création des dots pour ce carousel
+  slides.forEach((_, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", `Aller à la diapositive ${i + 1}`);
+    b.addEventListener("click", () => goTo(i));
+    dotsEl.appendChild(b);
+  });
+  const dots = Array.from(dotsEl.children);
+
+  function applyState(slide, state) {
+    slide.style.zIndex = "1";
+    if (state === "center") {
+      slide.style.opacity = "1";
+      slide.style.transform = "translate(-50%, -50%) scale(1) rotateY(0deg)";
+      slide.style.zIndex = "3";
+    } else if (state === "left") {
+      slide.style.opacity = "0.45";
+      slide.style.transform =
+        "translate(-120%, -50%) scale(0.86) rotateY(15deg)";
+      slide.style.zIndex = "2";
+    } else if (state === "right") {
+      slide.style.opacity = "0.45";
+      slide.style.transform =
+        "translate(20%, -50%) scale(0.86) rotateY(-15deg)";
+      slide.style.zIndex = "2";
+    } else {
+      slide.style.opacity = "0";
+      slide.style.transform = "translate(-50%, -50%) scale(0.9) rotateY(0deg)";
+    }
+  }
+
+  function render() {
+    const n = slides.length;
+    const leftIndex = (current - 1 + n) % n;
+    const rightIndex = (current + 1) % n;
+
+    slides.forEach((slide, i) => {
+      if (i === current) applyState(slide, "center");
+      else if (i === leftIndex) applyState(slide, "left");
+      else if (i === rightIndex) applyState(slide, "right");
+      else applyState(slide, "hidden");
+    });
+
+    dots.forEach((d, i) =>
+      d.setAttribute("aria-selected", i === current ? "true" : "false")
+    );
+  }
+
+  function goTo(i) {
+    current = (i + slides.length) % slides.length;
+    render();
+  }
+
+  function goNext() {
+    goTo(current + 1);
+  }
+  function goPrev() {
+    goTo(current - 1);
+  }
+
+  stage.addEventListener("click", (e) => {
+    const slideEl = e.target.closest(".slide");
+    if (!slideEl) return;
+
+    const idx = slides.indexOf(slideEl);
+    const leftIndex = (current - 1 + slides.length) % slides.length;
+    const rightIndex = (current + 1) % slides.length;
+
+    if (idx === leftIndex) goPrev();
+    else if (idx === rightIndex) goNext();
+  });
+
+  render();
+
+  window.addEventListener("keydown", (e) => {
+    // Gère seulement si le carousel est visible à l'écran
+    const rect = stage.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+    if (e.key === "ArrowRight") goNext();
+    if (e.key === "ArrowLeft") goPrev();
+  });
+});
+
+// --------------- PHOTOGRAPHIE ---------------
+
+// Pour chaque bouton .dot-p
+document.querySelectorAll(".dot-p").forEach((dot) => {
+  dot.addEventListener("click", () => {
+    const img = dot.closest("div[class^='img-photo-']").querySelector("img");
+
+    if (img) {
+      if (img.requestFullscreen) {
+        img.requestFullscreen();
+      } else if (img.webkitRequestFullscreen) {
+        img.webkitRequestFullscreen();
+      } else if (img.msRequestFullscreen) {
+        img.msRequestFullscreen();
+      }
+    }
+  });
+});
+
+const customPosition = 712; // par ex. 500px depuis le haut de la page
+
+document.addEventListener("fullscreenchange", () => {
+  if (!document.fullscreenElement) {
+    window.scrollTo({ top: customPosition, left: 0 });
+  }
+});
+
+// --------------- UP ON PAGES SYSTEMS ---------------
+
+const boutonsUp = document.querySelectorAll(".p-up");
+
+const cards = [
+  ".dessin",
+  ".maquette",
+  ".p-scolaire",
+  ".c-3d",
+  ".photo",
+  ".c-objet",
+];
+
+boutonsUp.forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    const card = document.querySelector(cards[index]);
+    if (!card) return;
+
+    if (card.scrollHeight > card.clientHeight) {
+      card.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    } else {
+      const topPosition = card.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: topPosition,
+        behavior: "smooth",
+      });
+    }
+  });
+});
+
+// -------------- PUZZLE ---------------
+
+const puzzle = document.getElementById("puzzle");
+const restartBtn = document.getElementById("restart");
+let pieces = [];
+
+// 1️⃣ Créer les pièces
+function loadPieces() {
+  pieces = [];
+  for (let i = 1; i <= 15; i++) {
+    const img = document.createElement("img");
+    img.src = `pieces/piece-${i}.png`; // tes images ici
+    img.classList.add("piece");
+    img.draggable = true;
+    img.dataset.correct = i; // position correcte
+    pieces.push(img);
+  }
+}
+
+// 2️⃣ Mélanger et afficher
+function renderPuzzle() {
+  puzzle.innerHTML = "";
+  pieces.sort(() => Math.random() - 0.5).forEach((p) => puzzle.appendChild(p));
+}
+
+// 3️⃣ Drag & Drop (échange complet des éléments)
+let dragged = null;
+
+puzzle.addEventListener("dragstart", (e) => {
+  if (e.target.classList.contains("piece")) dragged = e.target;
+});
+
+puzzle.addEventListener("dragover", (e) => {
+  e.preventDefault();
+});
+
+puzzle.addEventListener("drop", (e) => {
+  if (e.target.classList.contains("piece") && dragged) {
+    // échange complet des éléments dans le DOM
+    const draggedClone = dragged.cloneNode(true);
+    const targetClone = e.target.cloneNode(true);
+
+    puzzle.replaceChild(draggedClone, e.target);
+    puzzle.replaceChild(targetClone, dragged);
+
+    checkWin();
+  }
+});
+
+// 4️⃣ Vérifier victoire
+function checkWin() {
+  const imgs = puzzle.querySelectorAll(".piece");
+  let solved = true;
+  imgs.forEach((img, index) => {
+    if (parseInt(img.dataset.correct) !== index + 1) solved = false;
+  });
+
+  if (solved) {
+    // On enlève l'alerte et on ajoute la classe .open
+    document.querySelector(".p-page").classList.add("open");
+    document.querySelector(".pu-p").classList.add("open");
+  }
+}
+
+// 5️⃣ Bouton recommencer
+restartBtn.addEventListener("click", renderPuzzle);
+
+// 6️⃣ Initialisation
+loadPieces();
+renderPuzzle();

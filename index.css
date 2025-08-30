@@ -3,12 +3,36 @@
   src: url(./ASSETS/FONTS/Oswald/Oswald-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: "WDXL";
+  src: url(./FONTS/WDXL_Lubrifont_TC/WDXLLubrifontTC-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Bebas";
+  src: url(./FONTS/Bebas_Neue/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Kanit";
+  src: url(./FONTS/Kanit/Kanit-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Open";
+  src: url(./FONTS/Open_Sans/static/OpenSans-Medium.ttf);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 1rem;
-  font-family: "Oswald", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Kanit", Tahoma, Geneva, Verdana, sans-serif;
   /* outline: 1px solid red; */
 }
 
@@ -25,6 +49,8 @@ body {
   /* overflow-y: hidden; */
   overflow-x: hidden;
 }
+
+/* ---------------------------------------------- LOADER ---------------------------------------------- */
 
 /* Loader full screen */
 #loader {
@@ -106,9 +132,10 @@ header {
 .navbar .links a {
   text-decoration: none;
   color: rgb(0, 0, 0);
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: 0.3s;
   z-index: 20;
+  font-family: "Kanit";
 }
 .navbar .links .portfolio {
   position: relative;
@@ -121,7 +148,7 @@ header {
 } */
 
 .navbar .links .divider {
-  height: 1px;
+  height: 2px;
   width: 0;
   background-color: rgb(0, 0, 0);
   transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1);
@@ -131,6 +158,144 @@ header {
   width: 100%;
 }
 
+/* ----- BURGER MENU BUTTON ----- */
+
+.burger-menu-button {
+  width: 5%;
+  aspect-ratio: 1/1;
+  position: fixed;
+  right: 2%;
+  top: 2%;
+  color: rgb(255, 255, 255);
+  z-index: 100;
+  /* display: none; */
+  transition: all 0.3s;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.burger-menu-button.open {
+  z-index: 110;
+  background-color: rgba(255, 255, 255, 0);
+  color: white !important;
+  pointer-events: all !important;
+}
+
+.burger-menu-button.visible {
+  color: black;
+  pointer-events: all;
+  display: block;
+}
+
+.burger-menu-button.hidden {
+  display: none;
+}
+
+.burger-menu-button svg {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+/* ----- BURGER MENU ----- */
+
+.burger-menu {
+  background-color: rgba(51, 51, 51, 0.971);
+  width: 100px;
+  height: 100px;
+  border-radius: 1000px;
+  display: block;
+
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translate(500px, -500px);
+
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 100;
+}
+
+.burger-menu .links {
+  position: absolute;
+  left: 17rem;
+  bottom: 13rem;
+}
+
+.burger-menu .links li {
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.burger-menu .links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.4rem;
+  transition: 0.3s;
+}
+
+.burger-menu .links a:hover + [class^="divider"] {
+  width: 80%;
+}
+
+/* ----- DIVIDERS ----- */
+
+.burger-menu .links .divider-1 {
+  height: 1.5px;
+  width: 0;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+  position: absolute;
+  bottom: 178px;
+}
+
+.burger-menu .links .divider-2 {
+  height: 1.5px;
+  width: 0%;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+  position: absolute;
+  bottom: 122px;
+}
+
+.burger-menu .links .divider-3 {
+  height: 1.5px;
+  width: 0%;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+  position: absolute;
+  bottom: 66px;
+}
+
+.burger-menu .links .divider-4 {
+  height: 1.5px;
+  width: 0%;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+  position: absolute;
+  bottom: 10px;
+}
+
+.burger-menu.open {
+  width: 1000px;
+  height: 1000px;
+  display: block;
+
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
 /* ---------------------------------------------- MAIN ---------------------------------------------- */
 
 main {
@@ -138,7 +303,7 @@ main {
   /* height: 200vh; */
 }
 
-/* ----- HOME ----- */
+/* ---------------------------------------------- HOME ---------------------------------------------- */
 
 .home {
   height: 91vh;
@@ -164,8 +329,9 @@ main {
   top: 63%;
   right: 50%;
   z-index: 5;
-  font-size: 10.17rem;
+  font-size: 18.57rem;
   width: 100vw;
+  font-family: "Bebas";
 }
 
 .home .obj .flou {
@@ -195,14 +361,76 @@ main {
   z-index: 11;
 }
 
-/* ----- PORTFOLIO PAGE ----- */
+/* PUZZLE  */
+
+.pu-p {
+  background-color: rgb(24, 24, 24);
+  display: block;
+  /* transform: scale(0.8) translateY(30px); */
+  transition: all 0.8s ease-in-out;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  position: relative;
+}
+
+.pu-p.open {
+  display: none;
+  transform: scale(1) translateY(0);
+}
+
+#puzzle {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+  grid-template-rows: repeat(3, 100px);
+  /* gap: 2px; */
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+
+.piece {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid #333;
+  cursor: grab;
+}
+
+#restart {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #444;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+#restart:hover {
+  background: #666;
+}
+
+/* ---------------------------------------------- PORTFOLIO PAGE ---------------------------------------------- */
 
 .p-page {
   background-color: rgb(24, 24, 24);
+  display: none;
   height: 100vh;
   width: 100vw;
   position: relative;
   margin: 0;
+
+  transform: scale(0.8) translateY(30px);
+  transition: all 0.8s ease-in-out; /* durée + easing */
+}
+
+.p-page.open {
+  display: block;
+
+  transform: scale(1) translateY(0);
 }
 
 .p-page .cards {
@@ -220,7 +448,7 @@ main {
   border-radius: 38px;
 }
 
-/* ----- COMMUN ----- */
+/* -------------------- COMMUN -------------------- */
 
 .up {
   background-color: rgba(230, 230, 230, 0.066);
@@ -257,7 +485,7 @@ main {
   height: 13%;
   /* aspect-ratio: 1/1; */
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   top: 4%;
   right: 3%;
   z-index: 14;
@@ -281,28 +509,14 @@ main {
   display: block;
 }
 
-.page {
-  display: none;
-  background-color: black;
-  height: 200%;
-  width: 95%;
-  z-index: 12;
-  position: absolute;
-  bottom: -175%;
-}
-
-.page.open {
-  display: block;
-}
-
-/* ----- DESSINS ----- */
+/* -------------------- DESSINS -------------------- */
 
 .p-page .cards .dessin {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: solid 7px rgb(255, 255, 255);
+  border: solid 5px rgb(255, 255, 255);
   position: relative;
   transition: transform 0.3s ease;
   transition: all 0.5s;
@@ -329,13 +543,9 @@ main {
   width: 105%;
   border-radius: 50px;
   z-index: 10;
-  /* clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 50%,
-    0 50%
-  );  */
 }
+
+/* ----- CO-FLOU ----- */
 
 .p-page .cards .dessin .co-flou {
   background-color: rgba(230, 230, 230, 0.066);
@@ -350,11 +560,17 @@ main {
 }
 
 .p-page .cards .dessin .co-flou.close {
-  display: none;
+  background-color: rgba(230, 230, 230, 0.066);
+  border-radius: 0;
+  z-index: 11;
+  height: 100%;
+  top: 0%;
 }
 
+/* ----- TEXT ----- */
+
 .p-page .cards .dessin .text h1 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   position: absolute;
   color: white;
   z-index: 13;
@@ -365,6 +581,8 @@ main {
 .p-page .cards .dessin .text h1.close {
   display: none;
 }
+
+/* ----- UP ----- */
 
 .p-page .cards .dessin .up h1 {
   position: absolute;
@@ -377,39 +595,41 @@ main {
 }
 
 .p-page .cards .dessin:hover .up {
-  width: 50%;
+  /* width: 50%; */
   height: 16%;
   border-radius: 50px;
   background-color: rgba(230, 230, 230, 0.314);
 }
 
-.p-page .cards .dessin:hover .up svg {
+/* .p-page .cards .dessin:hover .up svg {
   left: 20%;
 }
 
 .p-page .cards .dessin:hover .up h1 {
   font-size: 0.85rem;
-}
+} */
 
 .p-page .cards .dessin .up:hover {
   box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
   background-color: rgba(230, 230, 230, 0.476);
 }
 
+/* ----- DOWN ----- */
+
 .p-page .cards .dessin .down:hover {
-  width: 30%;
-  height: 16%;
+  transform: scale(110%);
   border-radius: 50px;
-  background-color: rgba(230, 230, 230, 0.52);
+  background-color: rgba(230, 230, 230, 0.476);
+  box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
 }
 
-.p-page .cards .dessin .down:hover svg {
+/* .p-page .cards .dessin .down:hover svg {
   left: 20%;
 }
 
 .p-page .cards .dessin .down:hover h1 {
-  font-size: 1.6rem;
-}
+  font-size: 1.52rem;
+} */
 
 .p-page .cards .dessin .down h1 {
   position: absolute;
@@ -421,23 +641,207 @@ main {
   color: white;
 }
 
-/* ----- MAQUETTE ----- */
+/* ----- PAGE ----- */
+
+.p-page .cards .dessin .page {
+  display: none;
+  background-color: rgb(37, 36, 36);
+  height: 155%;
+  width: 100%;
+  z-index: 12;
+  position: absolute;
+  bottom: -115%;
+  border-radius: 50px 50px 0 0;
+  overflow: hidden;
+}
+
+.p-page .cards .dessin .page.open {
+  display: block;
+}
+
+.p-page .cards .dessin .page h1 {
+  font-size: 4rem;
+  color: white;
+  position: absolute;
+  top: 70px;
+  left: 7%;
+}
+
+.p-page .cards .dessin .page .ligne {
+  background-color: white;
+  width: 90%;
+  height: 1px;
+  position: absolute;
+  transform: translate(50%, -50%);
+  right: 50%;
+  top: 200px;
+}
+
+/* ----- CONTENT ----- */
+
+.p-page .cards .dessin .page .carousel {
+  top: 25%;
+  left: 17%;
+  position: absolute;
+  width: 30%;
+  height: 27%;
+  /* overflow: hidden; */
+}
+/* .carousel {
+  width: min(900px, 92vw);
+} */
+
+.p-page .cards .dessin .page .carousel-stage {
+  position: relative;
+  aspect-ratio: 9/13; /* hauteur automatique selon largeur */
+  perspective: 1200px;
+  user-select: none;
+}
+
+.p-page .cards .dessin .page .slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 78%;
+  height: 82%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.55s ease, opacity 0.55s ease, filter 0.55s ease;
+  /* pointer-events: none; */
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0; /* par défaut invisible, le JS force l’état */
+}
+
+.p-page .cards .dessin .page .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50px;
+  display: block;
+}
+
+.p-page .cards .dessin .page .dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.p-page .cards .dessin .page .dots button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.p-page .cards .dessin .page .dots button[aria-selected="true"] {
+  background: #fff;
+}
+
+/* ----- TEXT ----- */
+
+.p-page .cards .dessin .page .text-d-1 {
+  position: absolute;
+  width: 25%;
+  height: 50%;
+  right: 0;
+  margin: 10%;
+  top: 25%;
+}
+
+.p-page .cards .dessin .page .text-d-1 h1 {
+  margin: 2%;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 0%;
+  width: 100%;
+}
+
+.p-page .cards .dessin .page .text-d-2 {
+  position: absolute;
+  width: 85%;
+  height: 10%;
+  right: 8%;
+  margin: 7%;
+  top: 68%;
+}
+
+.p-page .cards .dessin .page .text-d-2 h1 {
+  margin: 2%;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+/* ----- PAGE UP ----- */
+
+.p-page .cards .dessin .page .p-up {
+  position: absolute;
+  bottom: -13%;
+  right: 50%;
+  background-color: rgba(230, 230, 230, 0.477);
+  border: solid 1px white;
+  border-radius: 50%;
+  width: 10%;
+  aspect-ratio: 1/1;
+  transform: translate(50%, -50%);
+  clip-path: inset(0 0 50% 0); /* coupe la moitié basse */
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.p-page .cards .dessin .page .p-up:hover {
+  background-color: rgba(230, 230, 230, 0.645);
+}
+
+.p-page .cards .dessin .page .p-up svg {
+  width: 50%;
+  aspect-ratio: 1/1;
+  color: white;
+  position: absolute;
+  top: 22%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+}
+
+/* -------------------- MAQUETTE -------------------- */
 
 .p-page .cards .maquette {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: solid 7px rgb(255, 255, 255);
+  border: solid 5px rgb(255, 255, 255);
   position: relative;
   transition: transform 0.3s ease;
+  transition: all 0.5s;
 }
 
 .p-page .cards .maquette.open {
-  width: 90vw;
-  position: absolute;
+  width: 95vw;
+  height: 90vh;
+
   top: 50%;
   right: 50%;
+  transform: translate(62.5%, -10%) scale(1);
+  position: absolute;
+
+  z-index: 100;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
 }
 
 .p-page .cards .maquette.close {
@@ -445,10 +849,12 @@ main {
 }
 
 .p-page .cards .maquette img {
-  width: 128%;
+  width: 123%;
   border-radius: 50px;
   z-index: 10;
 }
+
+/* ----- CO-FLOU ----- */
 
 .p-page .cards .maquette .co-flou {
   background-color: rgba(230, 230, 230, 0.066);
@@ -462,14 +868,30 @@ main {
   transition: all 0.4s;
 }
 
-.p-page .cards .maquette h1 {
-  font-size: 1rem;
+.p-page .cards .maquette .co-flou.close {
+  background-color: rgba(230, 230, 230, 0.066);
+  border-radius: 0;
+  z-index: 11;
+  height: 100%;
+  top: 0%;
+}
+
+/* ----- TEXT ----- */
+
+.p-page .cards .maquette .text h1 {
+  font-size: 1.1rem;
   position: absolute;
   color: white;
   z-index: 13;
   top: 83%;
   left: 10%;
 }
+
+.p-page .cards .maquette .text h1.close {
+  display: none;
+}
+
+/* ----- UP ----- */
 
 .p-page .cards .maquette .up h1 {
   position: absolute;
@@ -478,41 +900,213 @@ main {
   transform: translate(-50%, -50%);
   font-size: 0rem;
   transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: white;
 }
 
 .p-page .cards .maquette:hover .up {
-  width: 50%;
+  /* width: 50%; */
   height: 16%;
   border-radius: 50px;
   background-color: rgba(230, 230, 230, 0.314);
 }
 
-.p-page .cards .maquette:hover .up svg {
+/* .p-page .cards .maquette:hover .up svg {
   left: 20%;
 }
 
 .p-page .cards .maquette:hover .up h1 {
   font-size: 0.85rem;
-}
+} */
 
 .p-page .cards .maquette .up:hover {
   box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
   background-color: rgba(230, 230, 230, 0.476);
 }
 
-/* ----- PROJET SCOLAIRE ----- */
+/* ----- DOWN ----- */
+
+.p-page .cards .maquette .down:hover {
+  transform: scale(110%);
+  border-radius: 50px;
+  background-color: rgba(230, 230, 230, 0.476);
+  box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
+}
+
+/* .p-page .cards .maquette .down:hover svg {
+  left: 20%;
+}
+
+.p-page .cards .maquette .down:hover h1 {
+  font-size: 1.52rem;
+} */
+
+.p-page .cards .maquette .down h1 {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  font-size: 0rem;
+  transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: white;
+}
+
+/* ----- PAGE ----- */
+
+.p-page .cards .maquette .page {
+  display: none;
+  background-color: rgb(37, 36, 36);
+  height: 200%;
+  width: 100%;
+  z-index: 120;
+  position: absolute;
+  bottom: -160%;
+  border-radius: 50px 50px 0 0;
+  overflow: hidden;
+}
+
+.p-page .cards .maquette .page.open {
+  display: block;
+}
+
+.p-page .cards .maquette .page h1 {
+  font-size: 4rem;
+  color: white;
+  position: absolute;
+  top: 70px;
+  left: 7%;
+}
+
+.p-page .cards .maquette .page .ligne {
+  background-color: white;
+  width: 90%;
+  height: 1px;
+  position: absolute;
+  transform: translate(50%, -50%);
+  right: 50%;
+  top: 200px;
+}
+
+/* ----- CONTENT ----- */
+
+.p-page .cards .maquette .page .carousel {
+  top: 25%;
+  left: 17%;
+  position: absolute;
+  width: 30%;
+  height: 27%;
+  /* overflow: hidden; */
+}
+/* .carousel {
+  width: min(900px, 92vw);
+} */
+
+.p-page .cards .maquette .page .carousel-stage {
+  position: relative;
+  aspect-ratio: 16/9; /* hauteur automatique selon largeur */
+  perspective: 1200px;
+  user-select: none;
+}
+
+.p-page .cards .maquette .page .slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 78%;
+  height: 82%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.55s ease, opacity 0.55s ease, filter 0.55s ease;
+  /* pointer-events: none; */
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0; /* par défaut invisible, le JS force l’état */
+}
+
+.p-page .cards .maquette .page .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.p-page .cards .maquette .page .dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.p-page .cards .maquette .page .dots button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.p-page .cards .maquette .page .dots button[aria-selected="true"] {
+  background: #fff;
+}
+
+/* ----- PAGE UP ----- */
+
+.p-page .cards .maquette .page .p-up {
+  position: absolute;
+  bottom: -13%;
+  right: 50%;
+  background-color: rgba(230, 230, 230, 0.477);
+  border: solid 1px white;
+  border-radius: 50%;
+  width: 10%;
+  aspect-ratio: 1/1;
+  transform: translate(50%, -50%);
+  clip-path: inset(0 0 50% 0);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.p-page .cards .maquette .page .p-up:hover {
+  background-color: rgba(230, 230, 230, 0.645);
+}
+
+.p-page .cards .maquette .page .p-up svg {
+  width: 50%;
+  aspect-ratio: 1/1;
+  color: white;
+  position: absolute;
+  top: 22%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+}
+
+/* -------------------- PROJET SCOLAIRE -------------------- */
 
 .p-page .cards .p-scolaire {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: solid 7px rgb(255, 255, 255);
+  border: solid 5px rgb(255, 255, 255);
   position: relative;
+  transition: transform 0.3s ease;
+  transition: all 0.5s;
 }
 
 .p-page .cards .p-scolaire.open {
-  width: 100vw;
+  width: 95vw;
+  height: 90vh;
+
+  top: 50%;
+  right: 50%;
+  transform: translate(62.5%, -10%) scale(1);
+  position: absolute;
+
+  z-index: 100;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
 }
 
 .p-page .cards .p-scolaire.close {
@@ -525,10 +1119,11 @@ main {
   z-index: 10;
 }
 
+/* ----- CO-FLOU ----- */
+
 .p-page .cards .p-scolaire .co-flou {
   background-color: rgba(230, 230, 230, 0.066);
   backdrop-filter: blur(3px);
-  /* background: linear-gradient(180deg, transparent, rgba(120, 120, 120, 0.301)); */
   position: absolute;
   top: 74%;
   height: 30%;
@@ -538,14 +1133,30 @@ main {
   transition: all 0.4s;
 }
 
-.p-page .cards .p-scolaire h1 {
-  font-size: 1rem;
+.p-page .cards .p-scolaire .co-flou.close {
+  background-color: rgba(230, 230, 230, 0.066);
+  border-radius: 0;
+  z-index: 11;
+  height: 100%;
+  top: 0%;
+}
+
+/* ----- TEXT ----- */
+
+.p-page .cards .p-scolaire .text h1 {
+  font-size: 1.1rem;
   position: absolute;
   color: white;
   z-index: 13;
   top: 83%;
   left: 10%;
 }
+
+.p-page .cards .p-scolaire .text h1.close {
+  display: none;
+}
+
+/* ----- UP ----- */
 
 .p-page .cards .p-scolaire .up h1 {
   position: absolute;
@@ -554,41 +1165,304 @@ main {
   transform: translate(-50%, -50%);
   font-size: 0rem;
   transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: white;
 }
 
 .p-page .cards .p-scolaire:hover .up {
-  width: 50%;
+  /* width: 50%; */
   height: 16%;
   border-radius: 50px;
   background-color: rgba(230, 230, 230, 0.314);
 }
 
-.p-page .cards .p-scolaire:hover .up svg {
+/* .p-page .cards .p-scolaire:hover .up svg {
   left: 20%;
 }
 
 .p-page .cards .p-scolaire:hover .up h1 {
   font-size: 0.85rem;
-}
+} */
 
 .p-page .cards .p-scolaire .up:hover {
   box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
   background-color: rgba(230, 230, 230, 0.476);
 }
 
-/* ----- CONCEPTION 3D ----- */
+/* ----- DOWN ----- */
+
+.p-page .cards .p-scolaire .down:hover {
+  transform: scale(110%);
+  border-radius: 50px;
+  background-color: rgba(230, 230, 230, 0.476);
+  box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
+}
+
+/* .p-page .cards .p-scolaire .down:hover svg {
+  left: 20%;
+}
+
+.p-page .cards .p-scolaire .down:hover h1 {
+  font-size: 1.52rem;
+} */
+
+.p-page .cards .p-scolaire .down h1 {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  font-size: 0rem;
+  transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: white;
+}
+
+/* ----- PAGE ----- */
+
+.p-page .cards .p-scolaire .page {
+  display: none;
+  background-color: rgb(37, 36, 36);
+  height: 420%;
+  width: 100%;
+  z-index: 12;
+  position: absolute;
+  bottom: -380%;
+  border-radius: 50px 50px 0 0;
+  overflow: hidden;
+}
+
+.p-page .cards .p-scolaire .page.open {
+  display: block;
+}
+
+.p-page .cards .p-scolaire .page h1 {
+  font-size: 4rem;
+  color: white;
+  position: absolute;
+  top: 70px;
+  left: 7%;
+}
+
+.p-page .cards .p-scolaire .page .ligne {
+  background-color: white;
+  width: 90%;
+  height: 1px;
+  position: absolute;
+  transform: translate(50%, -50%);
+  right: 50%;
+  top: 200px;
+}
+
+/* ----- CONTENT ----- */
+
+.p-page .cards .p-scolaire .page .content {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 10%;
+}
+
+.p-page .cards .p-scolaire .page .content .video-1 video {
+  width: 100%;
+  height: auto;
+  /* position: absolute; */
+  top: 0;
+  border-radius: 50px;
+  object-fit: contain;
+}
+
+video::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
+
+.p-page .cards .p-scolaire .page .content .ligne-2 {
+  background-color: white;
+  width: 90%;
+  height: 1px;
+  position: absolute;
+  transform: translate(50%, -50%);
+  right: 50%;
+  top: 27.5%;
+}
+
+.p-page .cards .p-scolaire .page .content img {
+  width: 40%;
+  aspect-ratio: 16/9;
+  position: absolute;
+  top: 29%;
+  left: 5%;
+}
+
+.p-page .cards .p-scolaire .page .content .text-p-1 {
+  width: 50%;
+  height: 20%;
+  position: absolute;
+  right: 0;
+  top: 27.5%;
+}
+
+.p-page .cards .p-scolaire .page .content .text-p-1 h1 {
+  margin: 2%;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 21%;
+  width: 80%;
+}
+
+.p-page .cards .p-scolaire .page .content .text-p-2 {
+  width: 50%;
+  height: 30%;
+  position: absolute;
+  left: 0;
+  top: 39%;
+}
+
+.p-page .cards .p-scolaire .page .content .text-p-2 h1 {
+  margin: 2%;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 21%;
+  width: 80%;
+}
+
+.p-page .cards .p-scolaire .page .content .img-4-p {
+  /* background-color: rgb(178, 178, 178); */
+  width: 50%;
+  height: 20%;
+  position: absolute;
+  right: -3%;
+  top: 39%;
+  /* margin: 3%; */
+}
+
+.p-page .cards .p-scolaire .page .content .img-4-p .img-1 {
+  width: 40%;
+  aspect-ratio: 1.5/1;
+  position: absolute;
+  top: -0%;
+  left: 0;
+  transform: translate(0%, 50%);
+}
+
+.p-page .cards .p-scolaire .page .content .img-4-p .img-2 {
+  width: 40%;
+  aspect-ratio: 1.5/1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(85%, 25%) rotate(90deg);
+}
+
+.p-page .cards .p-scolaire .page .content .img-4-p .img-3 {
+  width: 40%;
+  aspect-ratio: 1.5/1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(20%, 100%) rotate(90deg);
+}
+
+.p-page .cards .p-scolaire .page .content .img-4-p .img-4 {
+  width: 40%;
+  aspect-ratio: 1.5/1;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(105%, 75%);
+}
+
+.p-page .cards .p-scolaire .page .content .video-2 video {
+  width: 30%;
+  height: auto;
+  position: absolute;
+  top: 58%;
+  border-radius: 50px;
+  object-fit: contain;
+  margin: 5%;
+}
+
+.p-page .cards .p-scolaire .page .content .text-p-3 {
+  width: 50%;
+  height: 30%;
+  position: absolute;
+  right: 0;
+  top: 62%;
+}
+
+.p-page .cards .p-scolaire .page .content .text-p-3 h1 {
+  margin: 2%;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 21%;
+  width: 80%;
+}
+
+/* ----- PAGE UP ----- */
+
+.p-page .cards .p-scolaire .page .p-up {
+  position: absolute;
+  bottom: -5%;
+  right: 50%;
+  background-color: rgba(230, 230, 230, 0.477);
+  border: solid 1px white;
+  border-radius: 50%;
+  width: 10%;
+  aspect-ratio: 1/1;
+  transform: translate(50%, -50%);
+  clip-path: inset(0 0 50% 0); /* coupe la moitié basse */
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.p-page .cards .p-scolaire .page .p-up:hover {
+  background-color: rgba(230, 230, 230, 0.645);
+}
+
+.p-page .cards .p-scolaire .page .p-up svg {
+  width: 50%;
+  aspect-ratio: 1/1;
+  color: white;
+  position: absolute;
+  top: 22%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+}
+
+/* -------------------- CONCEPTION 3D -------------------- */
 
 .p-page .cards .c-3d {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: solid 7px rgb(255, 255, 255);
+  border: solid 5px rgb(255, 255, 255);
   position: relative;
+  transition: transform 0.3s ease;
+  transition: all 0.5s;
 }
 
 .p-page .cards .c-3d.open {
-  width: 100vw;
+  width: 95vw;
+  height: 90vh;
+
+  top: 50%;
+  right: 50%;
+  transform: translate(62.5%, -10%) scale(1);
+  position: absolute;
+
+  z-index: 100;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
 }
 
 .p-page .cards .c-3d.close {
@@ -596,15 +1470,16 @@ main {
 }
 
 .p-page .cards .c-3d img {
-  width: 155%;
+  width: 165%;
   border-radius: 50px;
   z-index: 10;
 }
 
+/* ----- CO-FLOU ----- */
+
 .p-page .cards .c-3d .co-flou {
   background-color: rgba(230, 230, 230, 0.066);
   backdrop-filter: blur(3px);
-  /* background: linear-gradient(180deg, transparent, rgba(120, 120, 120, 0.301)); */
   position: absolute;
   top: 74%;
   height: 30%;
@@ -614,14 +1489,30 @@ main {
   transition: all 0.4s;
 }
 
-.p-page .cards .c-3d h1 {
-  font-size: 1rem;
+.p-page .cards .c-3d .co-flou.close {
+  background-color: rgba(230, 230, 230, 0.066);
+  border-radius: 0;
+  z-index: 11;
+  height: 100%;
+  top: 0%;
+}
+
+/* ----- TEXT ----- */
+
+.p-page .cards .c-3d .text h1 {
+  font-size: 1.1rem;
   position: absolute;
   color: white;
   z-index: 13;
   top: 83%;
   left: 10%;
 }
+
+.p-page .cards .c-3d .text h1.close {
+  display: none;
+}
+
+/* ----- UP ----- */
 
 .p-page .cards .c-3d .up h1 {
   position: absolute;
@@ -630,41 +1521,148 @@ main {
   transform: translate(-50%, -50%);
   font-size: 0rem;
   transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: white;
 }
 
 .p-page .cards .c-3d:hover .up {
-  width: 50%;
+  /* width: 50%; */
   height: 16%;
   border-radius: 50px;
   background-color: rgba(230, 230, 230, 0.314);
 }
 
-.p-page .cards .c-3d:hover .up svg {
+/* .p-page .cards .c-3d:hover .up svg {
   left: 20%;
 }
 
 .p-page .cards .c-3d:hover .up h1 {
   font-size: 0.85rem;
-}
+} */
 
 .p-page .cards .c-3d .up:hover {
   box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
   background-color: rgba(230, 230, 230, 0.476);
 }
 
-/* ----- PHOTOGRAPHIE ----- */
+/* ----- DOWN ----- */
+
+.p-page .cards .c-3d .down:hover {
+  transform: scale(110%);
+  border-radius: 50px;
+  background-color: rgba(230, 230, 230, 0.476);
+  box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
+}
+
+/* .p-page .cards .c-3d .down:hover svg {
+  left: 20%;
+}
+
+.p-page .cards .c-3d .down:hover h1 {
+  font-size: 1.52rem;
+} */
+
+.p-page .cards .c-3d .down h1 {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  font-size: 0rem;
+  transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: white;
+}
+
+/* ----- PAGE ----- */
+
+.p-page .cards .c-3d .page {
+  display: none;
+  background-color: rgb(37, 36, 36);
+  height: 200%;
+  width: 100%;
+  z-index: 12;
+  position: absolute;
+  bottom: -160%;
+  border-radius: 50px 50px 0 0;
+  overflow: hidden;
+}
+
+.p-page .cards .c-3d .page.open {
+  display: block;
+}
+
+.p-page .cards .c-3d .page h1 {
+  font-size: 4rem;
+  color: white;
+  position: absolute;
+  top: 70px;
+  left: 7%;
+}
+
+.p-page .cards .c-3d .page .ligne {
+  background-color: white;
+  width: 90%;
+  height: 1px;
+  position: absolute;
+  transform: translate(50%, -50%);
+  right: 50%;
+  top: 200px;
+}
+
+/* ----- PAGE UP ----- */
+
+.p-page .cards .c-3d .page .p-up {
+  position: absolute;
+  bottom: -13%;
+  right: 50%;
+  background-color: rgba(230, 230, 230, 0.477);
+  border: solid 1px white;
+  border-radius: 50%;
+  width: 10%;
+  aspect-ratio: 1/1;
+  transform: translate(50%, -50%);
+  clip-path: inset(0 0 50% 0); /* coupe la moitié basse */
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.p-page .cards .c-3d .page .p-up:hover {
+  background-color: rgba(230, 230, 230, 0.645);
+}
+
+.p-page .cards .c-3d .page .p-up svg {
+  width: 50%;
+  aspect-ratio: 1/1;
+  color: white;
+  position: absolute;
+  top: 22%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+}
+
+/* -------------------- PHOTOGRAPHIE -------------------- */
 
 .p-page .cards .photo {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: solid 7px rgb(255, 255, 255);
+  border: solid 5px rgb(255, 255, 255);
   position: relative;
+  transition: transform 0.3s ease;
+  transition: all 0.5s;
 }
 
 .p-page .cards .photo.open {
-  width: 100vw;
+  width: 95vw;
+  height: 90vh;
+
+  top: 50%;
+  right: 50%;
+  transform: translate(62.5%, -10%) scale(1);
+  position: absolute;
+
+  z-index: 100;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
 }
 
 .p-page .cards .photo.close {
@@ -677,10 +1675,11 @@ main {
   z-index: 10;
 }
 
+/* ----- CO-FLOU ----- */
+
 .p-page .cards .photo .co-flou {
   background-color: rgba(230, 230, 230, 0.066);
   backdrop-filter: blur(3px);
-  /* background: linear-gradient(180deg, transparent, rgba(120, 120, 120, 0.301)); */
   position: absolute;
   top: 74%;
   height: 30%;
@@ -690,14 +1689,30 @@ main {
   transition: all 0.4s;
 }
 
-.p-page .cards .photo h1 {
-  font-size: 1rem;
+.p-page .cards .photo .co-flou.close {
+  background-color: rgba(230, 230, 230, 0.066);
+  border-radius: 0;
+  z-index: 11;
+  height: 100%;
+  top: 0%;
+}
+
+/* ----- TEXT ----- */
+
+.p-page .cards .photo .text h1 {
+  font-size: 1.1rem;
   position: absolute;
   color: white;
   z-index: 13;
   top: 83%;
   left: 10%;
 }
+
+.p-page .cards .photo .text h1.close {
+  display: none;
+}
+
+/* ----- UP ----- */
 
 .p-page .cards .photo .up h1 {
   position: absolute;
@@ -706,41 +1721,483 @@ main {
   transform: translate(-50%, -50%);
   font-size: 0rem;
   transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: white;
 }
 
 .p-page .cards .photo:hover .up {
-  width: 50%;
+  /* width: 50%; */
   height: 16%;
   border-radius: 50px;
   background-color: rgba(230, 230, 230, 0.314);
 }
 
-.p-page .cards .photo:hover .up svg {
+/* .p-page .cards .photo:hover .up svg {
   left: 20%;
 }
 
 .p-page .cards .photo:hover .up h1 {
   font-size: 0.85rem;
-}
+} */
 
 .p-page .cards .photo .up:hover {
   box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
   background-color: rgba(230, 230, 230, 0.476);
 }
 
-/* ----- CONCEPTION D'OBJETS ----- */
+/* ----- DOWN ----- */
+
+.p-page .cards .photo .down:hover {
+  transform: scale(110%);
+  border-radius: 50px;
+  background-color: rgba(230, 230, 230, 0.476);
+  box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
+}
+
+/* .p-page .cards .photo .down:hover svg {
+  left: 20%;
+}
+
+.p-page .cards .photo .down:hover h1 {
+  font-size: 1.52rem;
+} */
+
+.p-page .cards .photo .down h1 {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  font-size: 0rem;
+  transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: white;
+}
+
+/* ----- PAGE ----- */
+
+.p-page .cards .photo .page {
+  display: none;
+  background-color: rgb(37, 36, 36);
+  height: 220%;
+  width: 100%;
+  z-index: 12;
+  position: absolute;
+  bottom: -180%;
+  border-radius: 50px 50px 0 0;
+  overflow: hidden;
+}
+
+.p-page .cards .photo .page.open {
+  display: block;
+}
+
+.p-page .cards .photo .page h1 {
+  font-size: 4rem;
+  color: white;
+  position: absolute;
+  top: 70px;
+  left: 7%;
+}
+
+.p-page .cards .photo .page .ligne {
+  background-color: white;
+  width: 90%;
+  height: 1px;
+  position: absolute;
+  transform: translate(50%, -50%);
+  right: 50%;
+  top: 200px;
+}
+
+.p-page .cards .photo .page .img-photo {
+  width: 90%;
+  height: 75.25%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin: 0 5%;
+  position: absolute;
+  top: 20%;
+}
+
+.img-photo > * {
+  min-width: 0;
+}
+
+.bar-p {
+  width: 70%;
+  background-color: rgba(230, 230, 230, 0.066);
+  backdrop-filter: blur(3px);
+  height: 13%;
+  border-radius: 50px;
+  position: absolute;
+  top: 65.5%;
+}
+
+.bar-p:hover .dot-p {
+  background-color: rgba(230, 230, 230, 0.425);
+}
+
+.dot-p {
+  height: 80%;
+  position: absolute;
+  right: 13%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  background-color: rgba(230, 230, 230, 0.202);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot-p svg {
+  width: 70%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+  color: white;
+}
+
+.p-page .cards .photo .page .img-photo img {
+  aspect-ratio: 3/4;
+  width: 80%;
+  border-radius: 30px;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-1 {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-1 .bar-p {
+  position: absolute;
+  right: 25%;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-1 .bar-p h1 {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(20%, -50%);
+  font-family: "Open";
+  color: white;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-2 {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-2 .bar-p {
+  position: absolute;
+  right: 25%;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-2 .bar-p h1 {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(20%, -50%);
+  font-family: "Open";
+  color: white;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-3 {
+  position: relative;
+  grid-column: 3;
+  grid-row: 1;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-3 .bar-p {
+  position: absolute;
+  right: 25%;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-3 .bar-p h1 {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(20%, -50%);
+  font-family: "Open";
+  color: white;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-4 {
+  position: relative;
+  grid-column: 2;
+  grid-row: 2;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-4 .bar-p {
+  position: absolute;
+  right: 25%;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-4 .bar-p h1 {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(20%, -50%);
+  font-family: "Open";
+  color: white;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-5 {
+  position: relative;
+  grid-column: 3;
+  grid-row: 2;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-5 .bar-p {
+  position: absolute;
+  right: 25%;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-5 .bar-p h1 {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(20%, -50%);
+  font-family: "Open";
+  color: white;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-6 {
+  position: relative;
+  grid-column: 4;
+  grid-row: 2;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-6 .bar-p {
+  position: absolute;
+  right: 25%;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-6 .bar-p h1 {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(20%, -50%);
+  font-family: "Open";
+  color: white;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-7 {
+  position: relative;
+  grid-column: 1;
+  grid-row: 3;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-7 .bar-p {
+  position: absolute;
+  right: 25%;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-7 .bar-p h1 {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(20%, -50%);
+  font-family: "Open";
+  color: white;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-8 {
+  position: relative;
+  grid-column: 2;
+  grid-row: 3;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-8 .bar-p {
+  position: absolute;
+  right: 25%;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-8 .bar-p h1 {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(20%, -50%);
+  font-family: "Open";
+  color: white;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-9 {
+  position: relative;
+  grid-column: 3;
+  grid-row: 3;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-9 .bar-p {
+  position: absolute;
+  right: 25%;
+}
+
+.p-page .cards .photo .page .img-photo .img-photo-9 .bar-p h1 {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(20%, -50%);
+  font-family: "Open";
+  color: white;
+}
+
+.p-page .cards .photo .page .img-photo .text-photo-1 {
+  grid-column: 4;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.p-page .cards .photo .page .img-photo .text-photo-1 h1 {
+  right: 0;
+
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 2.5%;
+}
+
+.p-page .cards .photo .page .img-photo .text-photo-2 {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.p-page .cards .photo .page .img-photo .text-photo-2 h1 {
+  left: 0;
+  height: 100%;
+  margin-right: 10%;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 2.5%;
+}
+
+.p-page .cards .photo .page .img-photo .text-photo-3 {
+  grid-column: 4;
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.p-page .cards .photo .page .img-photo .text-photo-3 h1 {
+  right: 0;
+
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 2.5%;
+}
+/* ----- PAGE UP ----- */
+
+.p-page .cards .photo .page .p-up {
+  position: absolute;
+  bottom: -9%;
+  right: 50%;
+  background-color: rgba(230, 230, 230, 0.477);
+  border: solid 1px white;
+  border-radius: 50%;
+  width: 10%;
+  aspect-ratio: 1/1;
+  transform: translate(50%, -50%);
+  clip-path: inset(0 0 50% 0); /* coupe la moitié basse */
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.p-page .cards .photo .page .p-up:hover {
+  background-color: rgba(230, 230, 230, 0.645);
+}
+
+.p-page .cards .photo .page .p-up svg {
+  width: 50%;
+  aspect-ratio: 1/1;
+  color: white;
+  position: absolute;
+  top: 22%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+}
+
+/* -------------------- CONCEPTION D'OBJETS -------------------- */
 
 .p-page .cards .c-objet {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: solid 7px rgb(255, 255, 255);
+  border: solid 5px rgb(255, 255, 255);
   position: relative;
+  transition: transform 0.3s ease;
+  transition: all 0.5s;
 }
 
 .p-page .cards .c-objet.open {
-  width: 100vw;
+  width: 95vw;
+  height: 90vh;
+
+  top: 50%;
+  right: 50%;
+  transform: translate(62.5%, -10%) scale(1);
+  position: absolute;
+
+  z-index: 100;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
 }
 
 .p-page .cards .c-objet.close {
@@ -753,10 +2210,11 @@ main {
   z-index: 10;
 }
 
+/* ----- CO-FLOU ----- */
+
 .p-page .cards .c-objet .co-flou {
   background-color: rgba(230, 230, 230, 0.066);
   backdrop-filter: blur(3px);
-  /* background: linear-gradient(180deg, transparent, rgba(120, 120, 120, 0.301)); */
   position: absolute;
   top: 74%;
   height: 30%;
@@ -766,14 +2224,30 @@ main {
   transition: all 0.4s;
 }
 
-.p-page .cards .c-objet h1 {
-  font-size: 1rem;
+.p-page .cards .c-objet .co-flou.close {
+  background-color: rgba(230, 230, 230, 0.066);
+  border-radius: 0;
+  z-index: 11;
+  height: 100%;
+  top: 0%;
+}
+
+/* ----- TEXT ----- */
+
+.p-page .cards .c-objet .text h1 {
+  font-size: 1.1rem;
   position: absolute;
   color: white;
   z-index: 13;
   top: 83%;
   left: 10%;
 }
+
+.p-page .cards .c-objet .text h1.close {
+  display: none;
+}
+
+/* ----- UP ----- */
 
 .p-page .cards .c-objet .up h1 {
   position: absolute;
@@ -782,29 +2256,125 @@ main {
   transform: translate(-50%, -50%);
   font-size: 0rem;
   transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: white;
 }
 
 .p-page .cards .c-objet:hover .up {
-  width: 50%;
+  /* width: 50%; */
   height: 16%;
   border-radius: 50px;
   background-color: rgba(230, 230, 230, 0.314);
 }
 
-.p-page .cards .c-objet:hover .up svg {
+/* .p-page .cards .c-objet:hover .up svg {
   left: 20%;
-}
+} 
 
 .p-page .cards .c-objet:hover .up h1 {
   font-size: 0.85rem;
-}
+}  */
 
 .p-page .cards .c-objet .up:hover {
   box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
   background-color: rgba(230, 230, 230, 0.476);
 }
 
-/* ----- A PROPOS ----- */
+/* ----- DOWN ----- */
+
+.p-page .cards .c-objet .down:hover {
+  transform: scale(110%);
+  border-radius: 50px;
+  background-color: rgba(230, 230, 230, 0.476);
+  box-shadow: rgba(72, 72, 72, 0.279) -1px 2px 2px 0;
+}
+
+/* .p-page .cards .c-objet .down:hover svg {
+  left: 20%;
+}
+
+.p-page .cards .c-objet .down:hover h1 {
+  font-size: 1.52rem;
+} */
+
+.p-page .cards .c-objet .down h1 {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  font-size: 0rem;
+  transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: white;
+}
+
+/* ----- PAGE ----- */
+
+.p-page .cards .c-objet .page {
+  display: none;
+  background-color: rgb(37, 36, 36);
+  height: 200%;
+  width: 100%;
+  z-index: 12;
+  position: absolute;
+  bottom: -160%;
+  border-radius: 50px 50px 0 0;
+  overflow: hidden;
+}
+
+.p-page .cards .c-objet .page.open {
+  display: block;
+}
+
+.p-page .cards .c-objet .page h1 {
+  font-size: 4rem;
+  color: white;
+  position: absolute;
+  top: 70px;
+  left: 7%;
+}
+
+.p-page .cards .c-objet .page .ligne {
+  background-color: white;
+  width: 90%;
+  height: 1px;
+  position: absolute;
+  transform: translate(50%, -50%);
+  right: 50%;
+  top: 200px;
+}
+
+/* ----- PAGE UP ----- */
+
+.p-page .cards .c-objet .page .p-up {
+  position: absolute;
+  bottom: -13%;
+  right: 50%;
+  background-color: rgba(230, 230, 230, 0.477);
+  border: solid 1px white;
+  border-radius: 50%;
+  width: 10%;
+  aspect-ratio: 1/1;
+  transform: translate(50%, -50%);
+  clip-path: inset(0 0 50% 0); /* coupe la moitié basse */
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.p-page .cards .c-objet .page .p-up:hover {
+  background-color: rgba(230, 230, 230, 0.645);
+}
+
+.p-page .cards .c-objet .page .p-up svg {
+  width: 50%;
+  aspect-ratio: 1/1;
+  color: white;
+  position: absolute;
+  top: 22%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+}
+
+/* ---------------------------------------------- A PROPOS ---------------------------------------------- */
 
 .a-propos {
   background-color: rgb(24, 24, 24);
@@ -818,13 +2388,67 @@ main {
 
 .a-propos .me {
   background-color: white;
+  border: solid 7px white;
   width: 80%;
   height: 80%;
   margin: 13% 20%;
   border-radius: 50px;
+  overflow: hidden;
 }
 
-/* ----- CONTACT ----- */
+.a-propos .me img {
+  width: 100%;
+  height: 100%;
+}
+
+.a-propos .about {
+  width: 74%;
+  position: relative;
+  height: 74%;
+  margin: 13%;
+}
+
+.a-propos .about h1 {
+  color: white;
+  font-size: 2rem;
+}
+
+.a-propos .about .text-a h1 {
+  margin: 2%;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.a-propos .about .cv {
+  background-color: rgb(255, 255, 255);
+  border-radius: 50px;
+  height: 10%;
+  width: 38%;
+  position: absolute;
+  bottom: 5%;
+  right: 8%;
+  transition: all 0.3s;
+}
+
+.a-propos .about .cv:hover {
+  background-color: #0056b3;
+}
+
+.a-propos .about .cv a {
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  right: 35%;
+  transform: translate(50%, -50%);
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-family: "Kanit";
+}
+
+/* ---------------------------------------------- CONTACT ---------------------------------------------- */
 
 .contact {
   background-color: rgb(24, 24, 24);
@@ -845,13 +2469,89 @@ main {
 }
 
 .contact .contact-i {
+  width: 30%;
+  height: 50%;
+  position: absolute;
+  left: 10%;
+  top: 25%;
 }
+
+.contact .contact-i h1 {
+  color: white;
+  position: absolute;
+  right: 50%;
+  transform: translate(50%, -50%);
+  font-size: 1.5rem;
+  top: 10%;
+}
+
+.contact .contact-i .mail {
+  width: 80%;
+  position: absolute;
+  height: 10%;
+  top: 30%;
+  right: -2%;
+}
+
+.contact .contact-i .mail svg {
+  color: white;
+  position: absolute;
+  transform: translate(50%, -50%);
+  top: 50%;
+  right: 92%;
+}
+
+.contact .contact-i .mail h1 {
+  font-size: 1rem;
+  position: absolute;
+  transform: translate(50%, -50%);
+  top: 50%;
+  right: 48%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.contact .contact-i .mail h1:hover {
+  color: rgb(207, 201, 201);
+}
+
+.contact .contact-i .tel {
+  width: 80%;
+  position: absolute;
+  height: 10%;
+  top: 60%;
+  right: -2%;
+}
+
+.contact .contact-i .tel svg {
+  color: white;
+  position: absolute;
+  transform: translate(50%, -50%);
+  top: 50%;
+  right: 92%;
+}
+
+.contact .contact-i .tel h1 {
+  font-size: 1rem;
+  position: absolute;
+  transform: translate(50%, -50%);
+  top: 50%;
+  right: 60%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.contact .contact-i .tel h1:hover {
+  color: rgb(207, 201, 201);
+}
+
+/* ----- SEND ----- */
 
 .contact .contact-t {
   display: grid;
   grid-template-rows: 25% 50% 25%;
   position: absolute;
-  top: 60%;
+  top: 50%;
   right: 30%;
   transform: translate(50%, -50%);
   width: 30%;
@@ -865,6 +2565,7 @@ main {
   font-size: 14px;
   box-sizing: border-box;
   margin: 5px;
+  color: rgb(101, 101, 101);
 }
 
 .contact .contact-t textarea {
@@ -873,10 +2574,11 @@ main {
   margin: 5px;
   border-radius: 20px;
   padding: 10px;
+  resize: none;
 }
 
 .contact .contact-t button {
-  color: rgb(0, 0, 0);
+  color: rgb(101, 101, 101);
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -884,7 +2586,7 @@ main {
   background-color: #ffffff;
 
   width: 30%;
-  border-radius: 15px;
+  border-radius: 50px;
   padding: 10px;
   right: 0%;
 }
@@ -896,9 +2598,10 @@ main {
 /* ---------------------------------------------- FOOTER ---------------------------------------------- */
 
 footer {
-  height: 30vh;
+  height: 37vh;
   width: 100vw;
   background-color: rgb(221, 220, 220);
+  position: relative;
 }
 
 .links-f {
@@ -914,7 +2617,7 @@ footer {
   position: relative;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5% 20% 1.5% 20%;
+  padding: 1.5% 20% 0.7% 20%;
   z-index: 20;
 }
 
@@ -935,4 +2638,46 @@ footer {
 
 .links-f .links a:hover + .divider {
   width: 100%;
+}
+
+.list-1 {
+  /* background-color: red; */
+  width: 20%;
+  height: auto;
+  position: absolute;
+  left: 37.8%;
+  display: flex;
+  flex-direction: column;
+  /* top: 0; */
+}
+
+.list-1 li {
+  color: rgb(87, 87, 87);
+}
+
+.list-2 {
+  /* background-color: red; */
+  width: 20%;
+  height: auto;
+  position: absolute;
+  left: 75%;
+  display: flex;
+  flex-direction: column;
+  /* top: 0; */
+}
+
+.list-2 li {
+  color: rgb(87, 87, 87);
+}
+
+.mention {
+  position: absolute;
+  bottom: 2%;
+  right: 50%;
+  transform: translate(50%, 0%);
+}
+
+.mention h1 {
+  color: rgb(87, 87, 87);
+  text-decoration: none;
 }

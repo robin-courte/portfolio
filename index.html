@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- ----- LINKS ----- -->
     <link rel="stylesheet" href="./index.css" />
     <script defer src="./index.js"></script>
+    <link rel="shortcut icon" href="./IMG/LogoRC.png" />
     <title>Robin Courte</title>
   </head>
   <body>
@@ -29,29 +30,7 @@
             <div class="divider"></div>
           </li>
           <li>
-            <a class="portfolio" href="#p-page"
-              >PORTFOLIO
-              <!-- <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"
-                  fill="currentColor"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M13 7C13 6.44772 12.5523 6 12 6C11.4477 6 11 6.44772 11 7V11H7C6.44772 11 6 11.4477 6 12C6 12.5523 6.44772 13 7 13H11V17C11 17.5523 11.4477 18 12 18C12.5523 18 13 17.5523 13 17V13H17C17.5523 13 18 12.5523 18 12C18 11.4477 17.5523 11 17 11H13V7Z"
-                  fill="currentColor"
-                />
-              </svg> -->
-            </a>
+            <a class="portfolio" href="#p-page">PORTFOLIO </a>
             <div class="divider"></div>
           </li>
           <li>
@@ -61,6 +40,48 @@
           <li>
             <a href="#contact">CONTACT</a>
             <div class="divider"></div>
+          </li>
+        </ul>
+      </div>
+      <div class="burger-menu-button">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44772 22 6C22 6.55228 21.5523 7 21 7H3C2.44772 7 2 6.55228 2 6Z"
+            fill="currentColor"
+          />
+          <path
+            d="M2 12.0322C2 11.4799 2.44772 11.0322 3 11.0322H21C21.5523 11.0322 22 11.4799 22 12.0322C22 12.5845 21.5523 13.0322 21 13.0322H3C2.44772 13.0322 2 12.5845 2 12.0322Z"
+            fill="currentColor"
+          />
+          <path
+            d="M3 17.0645C2.44772 17.0645 2 17.5122 2 18.0645C2 18.6167 2.44772 19.0645 3 19.0645H21C21.5523 19.0645 22 18.6167 22 18.0645C22 17.5122 21.5523 17.0645 21 17.0645H3Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div class="burger-menu">
+        <ul class="links">
+          <li>
+            <a href="#navbar">ACCEUIL</a>
+            <div class="divider-1"></div>
+          </li>
+          <li>
+            <a class="portfolio" href="#p-page">PORTFOLIO </a>
+            <div class="divider-2"></div>
+          </li>
+          <li>
+            <a href="#a-propos">À PROPOS</a>
+            <div class="divider-3"></div>
+          </li>
+          <li>
+            <a href="#contact">CONTACT</a>
+            <div class="divider-4"></div>
           </li>
         </ul>
       </div>
@@ -81,13 +102,108 @@
       </div>
 
       <!-- ----- PORTFOLIO ----- -->
-
+      <div class="pu-p" id="pu-p">
+        <div id="puzzle"></div>
+        <button id="restart">🔄 Recommencer le puzzle</button>
+      </div>
       <div class="p-page" id="p-page">
         <ul class="cards">
           <li class="dessin">
-            <img src="./IMG/dessin.JPG" alt="draws" />
+            <img src="./IMG/1-Dessin/dessin.JPG" alt="draw" />
             <div class="co-flou"></div>
-            <div class="text"><h1>DESSINS</h1></div>
+            <div class="text"><h1>DESSIN</h1></div>
+            <div class="up">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div class="down">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.567 8.02947L20.9105 1.76929L22.3153 3.19282L15.9916 9.43352L19.5614 9.44772L19.5534 11.4477L12.5535 11.4199L12.5813 4.41992L14.5813 4.42788L14.567 8.02947Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M7.97879 14.5429L4.40886 14.5457L4.40729 12.5457L11.4073 12.5402L11.4128 19.5402L9.41277 19.5417L9.40995 15.9402L3.09623 22.2306L1.68463 20.8138L7.97879 14.5429Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div class="page">
+              <h1>DESSIN</h1>
+              <div class="ligne"></div>
+              <div class="carousel" aria-label="carousel">
+                <div class="carousel-stage">
+                  <figure class="slide">
+                    <img src="./IMG/1-Dessin/dessin.JPG" alt="Image 1" />
+                  </figure>
+                  <figure class="slide">
+                    <img src="./IMG/1-Dessin/dessin-1.JPG" alt="Image 2" />
+                  </figure>
+                  <figure class="slide">
+                    <img src="./IMG/1-Dessin/dessin-2.JPG" alt="Image 3" />
+                  </figure>
+                  <figure class="slide">
+                    <img src="./IMG/1-Dessin/dessin-3.JPG" alt="Image 4" />
+                  </figure>
+                </div>
+                <div class="dots" role="tablist" aria-label="indicateurs"></div>
+              </div>
+              <div class="text-d-1">
+                <h1>
+                  J’ai réalisé la majeure partie de mes dessins au crayon à
+                  papier. Les premiers, aux formes géométriques, servaient à la
+                  conception de meubles. Ensuite, j’ai commencé à explorer
+                  d’autres univers tels que l’automobile, et aujourd’hui, je
+                  m’intéresse plus largement aux vêtements et aux personnages.
+                </h1>
+              </div>
+              <div class="text-d-2">
+                <h1>
+                  Ces changements ont suivi mes passions. D’abord, j’étais très
+                  attiré par l’architecture, dont je voulais d’ailleurs faire
+                  mon métier. Ensuite, je me suis intéressé aux vielles
+                  voitures, pour finalement à l’arrivée au lycée à découvrir de
+                  nouveaux styles vestimentaires.
+                </h1>
+              </div>
+              <div class="p-up">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.6569 16.2427L19.0711 14.8285L12.0001 7.75739L4.92896 14.8285L6.34317 16.2427L12.0001 10.5858L17.6569 16.2427Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+          </li>
+          <li class="maquette">
+            <img src="./IMG/2-Maquette/Maquette-4.PNG" alt="model" />
+            <div class="co-flou"></div>
+            <div class="text"><h1>MAQUETTE</h1></div>
 
             <div class="up">
               <svg
@@ -106,7 +222,6 @@
                   fill="currentColor"
                 />
               </svg>
-              <h1>Voir plus</h1>
             </div>
             <div class="down">
               <svg
@@ -125,57 +240,48 @@
                   fill="currentColor"
                 />
               </svg>
-              <h1>Voir moins</h1>
             </div>
-            <div class="page"></div>
-          </li>
-          <li class="maquette">
-            <img src="./IMG/Maquette .PNG" alt="model" />
-            <div class="co-flou"></div>
-            <h1>MAQUETTES</h1>
-            <div class="up">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <h1>Voir plus</h1>
-            </div>
-            <div class="down">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M14.567 8.02947L20.9105 1.76929L22.3153 3.19282L15.9916 9.43352L19.5614 9.44772L19.5534 11.4477L12.5535 11.4199L12.5813 4.41992L14.5813 4.42788L14.567 8.02947Z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M7.97879 14.5429L4.40886 14.5457L4.40729 12.5457L11.4073 12.5402L11.4128 19.5402L9.41277 19.5417L9.40995 15.9402L3.09623 22.2306L1.68463 20.8138L7.97879 14.5429Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <h1>Voir moins</h1>
+            <div class="page">
+              <h1>MAQUETTE</h1>
+              <div class="ligne"></div>
+              <div class="carousel" aria-label="carousel">
+                <div class="carousel-stage">
+                  <figure class="slide">
+                    <img src="./IMG/2-Maquette/Maquette .PNG" alt="Image 1" />
+                  </figure>
+                  <figure class="slide">
+                    <img src="./IMG/1-Dessin/dessin-1.JPG" alt="Image 2" />
+                  </figure>
+                  <figure class="slide">
+                    <img src="./IMG/1-Dessin/dessin-2.JPG" alt="Image 3" />
+                  </figure>
+                  <figure class="slide">
+                    <img src="./IMG/1-Dessin/dessin-3.JPG" alt="Image 4" />
+                  </figure>
+                </div>
+                <div class="dots" role="tablist" aria-label="indicateurs"></div>
+              </div>
+              <div class="p-up">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.6569 16.2427L19.0711 14.8285L12.0001 7.75739L4.92896 14.8285L6.34317 16.2427L12.0001 10.5858L17.6569 16.2427Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
             </div>
           </li>
           <li class="p-scolaire">
-            <img src="./IMG/Projet Scolaire.png" alt="school project" />
+            <img
+              src="./IMG/3-Projet Scolaire/PS Drone.png"
+              alt="school project"
+            />
             <div class="co-flou"></div>
-            <h1>PROJET SCOLAIRE</h1>
+            <div class="text"><h1>PROJET SCOLAIRE</h1></div>
             <div class="up">
               <svg
                 width="24"
@@ -193,7 +299,6 @@
                   fill="currentColor"
                 />
               </svg>
-              <h1>Voir plus</h1>
             </div>
             <div class="down">
               <svg
@@ -212,13 +317,105 @@
                   fill="currentColor"
                 />
               </svg>
-              <h1>Voir moins</h1>
+            </div>
+            <div class="page">
+              <h1>PROJET SCOLAIRE</h1>
+              <div class="ligne"></div>
+              <div class="content">
+                <div class="video-1">
+                  <video
+                    src="./IMG/3-Projet Scolaire/Vidéo drone PS .mp4"
+                    autoplay
+                    muted
+                    loop
+                    controls
+                  ></video>
+                </div>
+                <div class="ligne-2"></div>
+                <img
+                  src="./IMG/3-Projet Scolaire/Logo X + nom.PNG"
+                  alt="Logo SPEED X"
+                />
+                <div class="text-p-1">
+                  <h1>
+                    Durant mon année en classe de première (2024-2025), j’ai pu
+                    réalisé un projet, en groupe de 4, en tant que chef de
+                    projet, avec ma spécialité Sciences de l’ingénieur. Ce
+                    projet consistait à la réalisation d’un drone.
+                  </h1>
+                </div>
+                <div class="text-p-2">
+                  <h1>
+                    Au cours de ce projet, j’ai réalisé des prototypes 3D,
+                    ensuite imprimés en 3D, auquel nous ajoutions des composants
+                    électroniques. Ainsi qu’une identité visuelle, à travers un
+                    logo, un cahier des charges ou encore une vidéo de
+                    présentation. De plus dans ce cahier des charges, j’ai du
+                    réaliser différents schémas/ diagramme, comme les diagrammes
+                    SysML, des vues 3D en coupe du drone ou encore des mises en
+                    plan.
+                  </h1>
+                </div>
+                <div class="img-4-p">
+                  <img
+                    class="img-1"
+                    src="./IMG/3-Projet Scolaire/mise en plan.png"
+                    alt="Plan-up"
+                  />
+                  <img
+                    class="img-2"
+                    src="./IMG/3-Projet Scolaire/Cahier des charges.png"
+                    alt="Fonctional specifications"
+                  />
+                  <img
+                    class="img-3"
+                    src="./IMG/3-Projet Scolaire/schema des exigences.jpg"
+                    alt="Schema of requirements"
+                  />
+                  <img
+                    class="img-4"
+                    src="./IMG/3-Projet Scolaire/PS Drone.png"
+                    alt="3D view of the drone"
+                  />
+                </div>
+                <div class="video-2">
+                  <video
+                    src="./IMG/3-Projet Scolaire/Vidéo Test.mp4"
+                    muted
+                    loop
+                    autoplay
+                  ></video>
+                </div>
+                <div class="text-p-3">
+                  <h1>
+                    J’ai pu acquérir des connaissances dans la conception 3D,
+                    l’animation 3D, l’électronique le travail d’équipe et la
+                    gestion d’un projet. Nous avons finalement pas réussi à
+                    faire voler le drone à cause d’une panne d’un composant et
+                    le manque de temps. Mais des tests avaient été effectués.
+                  </h1>
+                </div>
+              </div>
+              <div class="p-up">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.6569 16.2427L19.0711 14.8285L12.0001 7.75739L4.92896 14.8285L6.34317 16.2427L12.0001 10.5858L17.6569 16.2427Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
             </div>
           </li>
           <li class="c-3d">
-            <img src="./IMG/C-3D.png" alt="3D conception" />
+            <img src="./IMG/4-Conception 3D/C-3D-3.png" alt="3D conception" />
             <div class="co-flou"></div>
-            <h1>CONCEPTION 3D</h1>
+            <div class="text">
+              <h1>CONCEPTION 3D</h1>
+            </div>
             <div class="up">
               <svg
                 width="24"
@@ -236,7 +433,6 @@
                   fill="currentColor"
                 />
               </svg>
-              <h1>Voir plus</h1>
             </div>
             <div class="down">
               <svg
@@ -255,13 +451,28 @@
                   fill="currentColor"
                 />
               </svg>
-              <h1>Voir moins</h1>
+            </div>
+            <div class="page">
+              <h1>CONCEPTION 3D</h1>
+              <div class="ligne"></div>
+              <div class="p-up">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.6569 16.2427L19.0711 14.8285L12.0001 7.75739L4.92896 14.8285L6.34317 16.2427L12.0001 10.5858L17.6569 16.2427Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
             </div>
           </li>
           <li class="photo">
-            <img src="./IMG/Photo.JPG" alt="photography" />
+            <img src="./IMG/5-Photographie/photo-1.JPG" alt="photography" />
             <div class="co-flou"></div>
-            <h1>PHOTOGRAPHIE</h1>
+            <div class="text"><h1>PHOTOGRAPHIE</h1></div>
             <div class="up">
               <svg
                 width="24"
@@ -279,7 +490,6 @@
                   fill="currentColor"
                 />
               </svg>
-              <h1>Voir plus</h1>
             </div>
             <div class="down">
               <svg
@@ -298,13 +508,309 @@
                   fill="currentColor"
                 />
               </svg>
-              <h1>Voir moins</h1>
+            </div>
+            <div class="page">
+              <h1>PHOTOGRAPHIE</h1>
+              <div class="ligne"></div>
+              <div class="img-photo">
+                <div class="img-photo-1">
+                  <img
+                    src="./IMG/5-Photographie/photo-2.jpg"
+                    class="image-photo-1"
+                    alt=""
+                    tabindex="0"
+                  />
+                  <div class="bar-p">
+                    <h1>Tram à Milan</h1>
+                    <div class="dot-p">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="img-photo-2">
+                  <img
+                    src="./IMG/5-Photographie/photo-3.JPG"
+                    class="image-photo-2"
+                    alt=""
+                  />
+                  <div class="bar-p">
+                    <h1>Mon portrait</h1>
+                    <div class="dot-p">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="img-photo-3">
+                  <img
+                    src="./IMG/5-Photographie/photo-4.jpg"
+                    class="image-photo-3"
+                    alt=""
+                  />
+                  <div class="bar-p">
+                    <h1>Mon chat (Tigrou)</h1>
+                    <div class="dot-p">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-photo-1">
+                  <h1>
+                    Mes photos sont prises avec un téléphone. J’essaie d’y
+                    comprendre les effets de la lumière, du cadrage, des
+                    textures et des formes pour capturer de belles images.
+                    Ensuite, je les édites à l’aide d’un logiciel (Lightroom)
+                    pour obtenir de meilleurs rendus.
+                  </h1>
+                </div>
+                <div class="text-photo-2">
+                  <h1>
+                    De ce fait, j’apprends à bien prendre des photos mais aussi
+                    à les mettre en valeurs. Ce qui me passionne énormément
+                    puisque ce domaine est assez accessible et très diversifié.
+                  </h1>
+                </div>
+                <div class="img-photo-4">
+                  <img
+                    src="./IMG/5-Photographie/photo-5.JPG"
+                    class="image-photo-3"
+                    alt=""
+                  />
+                  <div class="bar-p">
+                    <h1>Un pissenlit</h1>
+                    <div class="dot-p">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="img-photo-5">
+                  <img
+                    src="./IMG/5-Photographie/photo-6.jpg"
+                    class="image-photo-3"
+                    alt=""
+                  />
+                  <div class="bar-p">
+                    <h1>Mon chat (Moon)</h1>
+                    <div class="dot-p">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="img-photo-6">
+                  <img
+                    src="./IMG/5-Photographie/photo-7.JPG"
+                    class="image-photo-3"
+                    alt=""
+                  />
+                  <div class="bar-p">
+                    <h1>Musée à Prague</h1>
+                    <div class="dot-p">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="img-photo-7">
+                  <img
+                    src="./IMG/5-Photographie/photo-8.JPG"
+                    class="image-photo-3"
+                    alt=""
+                  />
+                  <div class="bar-p">
+                    <h1>Maison dansante</h1>
+                    <div class="dot-p">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="img-photo-8">
+                  <img
+                    src="./IMG/5-Photographie/photo-1.JPG"
+                    class="image-photo-3"
+                    alt=""
+                  />
+                  <div class="bar-p">
+                    <h1>Rue de Milan</h1>
+                    <div class="dot-p">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="img-photo-9">
+                  <img
+                    src="./IMG/5-Photographie/photo-9.JPG"
+                    class="image-photo-3"
+                    alt=""
+                  />
+                  <div class="bar-p">
+                    <h1>Bateau à Zadar</h1>
+                    <div class="dot-p">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.8995 4.10052V2.10052H21.8995V10.1005H19.8995V5.51477L14.1213 11.293L12.7071 9.87878L18.4854 4.10052H13.8995Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M4.10046 13.8995H2.10046V21.8995H10.1005V19.8995H5.51468L11.2929 14.1212L9.87872 12.707L4.10046 18.4853V13.8995Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-photo-3">
+                  <h1>
+                    J’ai testé différents domaines, tels que les paysages, les
+                    portraits, la végétation, les animaux, l’automobile, etc.
+                  </h1>
+                </div>
+              </div>
+
+              <div class="p-up">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.6569 16.2427L19.0711 14.8285L12.0001 7.75739L4.92896 14.8285L6.34317 16.2427L12.0001 10.5858L17.6569 16.2427Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
             </div>
           </li>
           <li class="c-objet">
-            <img src="./IMG/C-objet.PNG" alt="object conception" />
+            <img
+              src="./IMG/6-Conception d'objets/C-objet.PNG"
+              alt="object conception"
+            />
             <div class="co-flou"></div>
-            <h1>CONCEPTION D'OBJETS</h1>
+            <div class="text"><h1>CONCEPTION D'OBJET</h1></div>
             <div class="up">
               <svg
                 width="24"
@@ -322,7 +828,6 @@
                   fill="currentColor"
                 />
               </svg>
-              <h1>Voir plus</h1>
             </div>
             <div class="down">
               <svg
@@ -341,7 +846,22 @@
                   fill="currentColor"
                 />
               </svg>
-              <h1>Voir moins</h1>
+            </div>
+            <div class="page">
+              <h1>CONCEPTION D'OBJET</h1>
+              <div class="ligne"></div>
+              <div class="p-up">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.6569 16.2427L19.0711 14.8285L12.0001 7.75739L4.92896 14.8285L6.34317 16.2427L12.0001 10.5858L17.6569 16.2427Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
             </div>
           </li>
         </ul>
@@ -350,8 +870,51 @@
       <!-- ----- A PROPOS ----- -->
 
       <div class="a-propos" id="a-propos">
-        <div class="me"></div>
-        <div class="about"></div>
+        <div class="me">
+          <img src="./IMG/Me.JPG" alt="Robin picture" />
+        </div>
+        <div class="about">
+          <h1>Salut !</h1>
+          <div class="text-a">
+            <ul>
+              <li>
+                <h1>
+                  Je m’appelle Robin, j’ai 17 ans et je suis au lycée. Je suis
+                  passionné par le design et la conception matériel et digitale.
+                  J’aime exploré le monde qui nous entoure et donné vie à
+                  différents projets.
+                </h1>
+              </li>
+              <li>
+                <h1>
+                  Actuellement en classe de terminale (2025-2026), j’essaye de
+                  développé diverses compétences par passion mais aussi pour
+                  acquérir les bases nécessaires dans de nombreux domaines. Ce
+                  qui me permettra par la suite, une flexibilité avantageuse.
+                </h1>
+              </li>
+              <li>
+                <h1>
+                  Ce site en est l’exemple, n’ayant aucune compétence dans les
+                  langages HTML, CSS ou JavaScript initialement, j’ai
+                  progressivement appris pour obtenir les connaissances
+                  nécessaire à la création d’un premier site web.
+                </h1>
+              </li>
+              <li>
+                <h1>
+                  Mon objectif est de continuer à apprendre, à créer et à
+                  m'améliorer chaque jour.
+                </h1>
+              </li>
+            </ul>
+          </div>
+          <div class="cv">
+            <a href="./PDF/CV - 2025 - Robin.C.pdf" download="CV"
+              >Télécharger mon CV</a
+            >
+          </div>
+        </div>
       </div>
 
       <!-- ----- CONTACT ----- -->
@@ -360,8 +923,38 @@
         <h1>CONTACTEZ-MOI</h1>
         <div class="contact-i">
           <h1>INFORMATIONS</h1>
-          <div class="mail"></div>
-          <div class="tel"></div>
+          <div class="mail">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M3.00977 5.83789C3.00977 5.28561 3.45748 4.83789 4.00977 4.83789H20C20.5523 4.83789 21 5.28561 21 5.83789V17.1621C21 18.2667 20.1046 19.1621 19 19.1621H5C3.89543 19.1621 3 18.2667 3 17.1621V6.16211C3 6.11449 3.00333 6.06765 3.00977 6.0218V5.83789ZM5 8.06165V17.1621H19V8.06199L14.1215 12.9405C12.9499 14.1121 11.0504 14.1121 9.87885 12.9405L5 8.06165ZM6.57232 6.80554H17.428L12.7073 11.5263C12.3168 11.9168 11.6836 11.9168 11.2931 11.5263L6.57232 6.80554Z"
+                fill="currentColor"
+              />
+            </svg>
+            <h1>robin.courte@gmail.com</h1>
+          </div>
+          <div class="tel">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-telephone"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+              />
+            </svg>
+            <h1>06 70 52 64 68</h1>
+          </div>
         </div>
         <div class="contact-t">
           <div>
@@ -411,8 +1004,21 @@
           </li>
         </ul>
       </div>
-      <div class="list"></div>
-      <div class="mention"></div>
+      <div class="list-1">
+        <li>Dessin</li>
+        <li>Maquette</li>
+        <li>Projet Scolaire</li>
+        <li>Conception 3D</li>
+        <li>Photographie</li>
+        <li>Conception d'objet</li>
+      </div>
+      <div class="list-2">
+        <li>robin.courte@gmail.com</li>
+        <li>06 70 52 64 68</li>
+      </div>
+      <div class="mention">
+        <h1>@2025 Designed by Robin Courte</h1>
+      </div>
     </footer>
   </body>
 </html>
