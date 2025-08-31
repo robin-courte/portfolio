@@ -33,6 +33,25 @@ window.addEventListener("load", () => {
   }, intervalTime);
 });
 
+// --------------- PRECHARGER PHOTO ---------------
+
+const photo = document.querySelector(".photo");
+
+function cycle(openTime, closeTime) {
+  photo.classList.add("open");
+  setTimeout(() => {
+    photo.classList.remove("open");
+  }, openTime);
+}
+
+window.addEventListener("load", () => {
+  let cycles = 0;
+  const interval = setInterval(() => {
+    cycle(500, 500);
+    cycles++;
+    if (cycles === 3) clearInterval(interval);
+  }, 1000);
+});
 // --------------- MENU ---------------
 
 const navbar = document.querySelector(".links");
@@ -64,6 +83,128 @@ burgerMenuButton.onclick = function () {
   burgerMenu.classList.toggle("open");
   burgerMenuButton.classList.toggle("open");
 };
+
+// -------------- PUZZLE ---------------
+
+const puzzle = document.getElementById("puzzle");
+let pieces = [];
+
+// 1️⃣ Créer les pièces
+function loadPieces() {
+  pieces = [];
+  for (let i = 1; i <= 15; i++) {
+    const img = document.createElement("img");
+    img.src = `pieces/piece-${i}.png`; // tes images ici
+    img.classList.add("piece");
+    img.draggable = true;
+    img.dataset.correct = i; // position correcte
+    pieces.push(img);
+  }
+}
+
+// 2️⃣ Mélanger et afficher
+function renderPuzzle() {
+  puzzle.innerHTML = "";
+  pieces.sort(() => Math.random() - 0.5).forEach((p) => puzzle.appendChild(p));
+}
+
+// 3️⃣ Drag & Drop (échange complet des éléments)
+let dragged = null;
+
+puzzle.addEventListener("dragstart", (e) => {
+  if (e.target.classList.contains("piece")) dragged = e.target;
+});
+
+puzzle.addEventListener("dragover", (e) => {
+  e.preventDefault();
+});
+
+puzzle.addEventListener("drop", (e) => {
+  if (e.target.classList.contains("piece") && dragged) {
+    // échange complet des éléments dans le DOM
+    const draggedClone = dragged.cloneNode(true);
+    const targetClone = e.target.cloneNode(true);
+
+    puzzle.replaceChild(draggedClone, e.target);
+    puzzle.replaceChild(targetClone, dragged);
+
+    checkWin();
+  }
+});
+
+// 4️⃣ Vérifier victoire
+function checkWin() {
+  const imgs = puzzle.querySelectorAll(".piece");
+  let solved = true;
+  imgs.forEach((img, index) => {
+    if (parseInt(img.dataset.correct) !== index + 1) solved = false;
+  });
+
+  if (solved) {
+    document.querySelector(".p-page").classList.add("open");
+    document.querySelector(".pu-p").classList.add("open");
+  }
+}
+
+// 6️⃣ Initialisation
+loadPieces();
+renderPuzzle();
+
+// --------------- BUTTON RESTART ---------------
+
+const PPortfolio = document.querySelector(".p-page");
+const RestartB = document.querySelector(".restart");
+
+RestartB.onclick = function () {
+  document.querySelector(".p-page").classList.remove("open");
+  document.querySelector(".pu-p").classList.remove("open");
+};
+
+RestartB.addEventListener("click", renderPuzzle);
+
+const observerP = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        RestartB.classList.remove("visible");
+      } else {
+        RestartB.classList.add("visible");
+      }
+    });
+  },
+  {
+    threshold: 0.6,
+  }
+);
+
+observerP.observe(PPortfolio);
+
+// --------------- BUTTON CHECK ---------------
+
+const CheckB = document.querySelector(".check");
+const PPuzzle = document.querySelector(".pu-p");
+
+CheckB.onclick = function () {
+  document.querySelector(".p-page").classList.add("open");
+  document.querySelector(".pu-p").classList.add("open");
+};
+
+const observerPu = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        CheckB.classList.remove("visible");
+      } else {
+        CheckB.classList.add("visible");
+      }
+    });
+  },
+  {
+    threshold: 0.6,
+  }
+);
+
+observerPu.observe(PPuzzle);
 
 // --------------- CARDS SYSTEMS ---------------
 
@@ -98,6 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.classList.remove("close");
       up.classList.add("close");
       down.classList.add("open");
+      RestartB.classList.remove("visible");
 
       h1s.forEach((el) => el.classList.add("close"));
       coFlous.forEach((el) => el.classList.add("close"));
@@ -113,6 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.classList.remove("open");
       up.classList.remove("close");
       down.classList.remove("open");
+      RestartB.classList.add("visible");
 
       document.body.style.overflow = "";
 
@@ -133,64 +276,6 @@ document.addEventListener("DOMContentLoaded", () => {
     up.addEventListener("click", openCard);
     down.addEventListener("click", closeCard);
   });
-});
-
-// ----- CONTACT INFOS -----
-
-// ----- MAIL -----
-
-const textElementMail = document.querySelector(".mail h1");
-
-textElementMail.addEventListener("click", () => {
-  const text = textElementMail.innerText;
-
-  navigator.clipboard
-    .writeText(text)
-    .then(() => {
-      alert("Texte copié dans le presse-papier !");
-    })
-    .catch((err) => {
-      console.error("Impossible de copier : ", err);
-    });
-});
-
-// ----- TEL -----
-
-const textElementTel = document.querySelector(".tel h1");
-
-textElementTel.addEventListener("click", () => {
-  const text = textElementTel.innerText;
-
-  navigator.clipboard
-    .writeText(text)
-    .then(() => {
-      alert("Texte copié dans le presse-papier !");
-    })
-    .catch((err) => {
-      console.error("Impossible de copier : ", err);
-    });
-});
-
-// ----- CONTACT BUTTON -----
-
-const sendBtn = document.getElementById("send-btn");
-
-sendBtn.addEventListener("click", () => {
-  const method = document.getElementById("contact-method").value;
-  const message = document.getElementById("message").value;
-
-  if (method === "mail") {
-    const email = "robin.courte@gmaim.com";
-    const mailtoLink = `mailto:${email}?body=${encodeURIComponent(message)}`;
-    window.location.href = mailtoLink;
-  } else if (method === "tel") {
-    const phone = "+330670526468";
-    // Pour appeler directement :
-    const telLink = `tel:${phone}`;
-    // Pour envoyer un SMS (mobile) :
-    // const smsLink = `sms:${phone}?body=${encodeURIComponent(message)}`;
-    window.location.href = telLink;
-  }
 });
 
 // --------------- CAROUSEL DESSIN ---------------
@@ -345,73 +430,60 @@ boutonsUp.forEach((btn, index) => {
   });
 });
 
-// -------------- PUZZLE ---------------
+// ----- CONTACT INFOS -----
 
-const puzzle = document.getElementById("puzzle");
-const restartBtn = document.getElementById("restart");
-let pieces = [];
+// ----- MAIL -----
 
-// 1️⃣ Créer les pièces
-function loadPieces() {
-  pieces = [];
-  for (let i = 1; i <= 15; i++) {
-    const img = document.createElement("img");
-    img.src = `pieces/piece-${i}.png`; // tes images ici
-    img.classList.add("piece");
-    img.draggable = true;
-    img.dataset.correct = i; // position correcte
-    pieces.push(img);
-  }
-}
+const textElementMail = document.querySelector(".mail h1");
 
-// 2️⃣ Mélanger et afficher
-function renderPuzzle() {
-  puzzle.innerHTML = "";
-  pieces.sort(() => Math.random() - 0.5).forEach((p) => puzzle.appendChild(p));
-}
+textElementMail.addEventListener("click", () => {
+  const text = textElementMail.innerText;
 
-// 3️⃣ Drag & Drop (échange complet des éléments)
-let dragged = null;
-
-puzzle.addEventListener("dragstart", (e) => {
-  if (e.target.classList.contains("piece")) dragged = e.target;
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      alert("Texte copié dans le presse-papier !");
+    })
+    .catch((err) => {
+      console.error("Impossible de copier : ", err);
+    });
 });
 
-puzzle.addEventListener("dragover", (e) => {
-  e.preventDefault();
+// ----- TEL -----
+
+const textElementTel = document.querySelector(".tel h1");
+
+textElementTel.addEventListener("click", () => {
+  const text = textElementTel.innerText;
+
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      alert("Texte copié dans le presse-papier !");
+    })
+    .catch((err) => {
+      console.error("Impossible de copier : ", err);
+    });
 });
 
-puzzle.addEventListener("drop", (e) => {
-  if (e.target.classList.contains("piece") && dragged) {
-    // échange complet des éléments dans le DOM
-    const draggedClone = dragged.cloneNode(true);
-    const targetClone = e.target.cloneNode(true);
+// ----- CONTACT BUTTON -----
 
-    puzzle.replaceChild(draggedClone, e.target);
-    puzzle.replaceChild(targetClone, dragged);
+const sendBtn = document.getElementById("send-btn");
 
-    checkWin();
+sendBtn.addEventListener("click", () => {
+  const method = document.getElementById("contact-method").value;
+  const message = document.getElementById("message").value;
+
+  if (method === "mail") {
+    const email = "robin.courte@gmaim.com";
+    const mailtoLink = `mailto:${email}?body=${encodeURIComponent(message)}`;
+    window.location.href = mailtoLink;
+  } else if (method === "tel") {
+    const phone = "+330670526468";
+    // Pour appeler directement :
+    const telLink = `tel:${phone}`;
+    // Pour envoyer un SMS (mobile) :
+    // const smsLink = `sms:${phone}?body=${encodeURIComponent(message)}`;
+    window.location.href = telLink;
   }
 });
-
-// 4️⃣ Vérifier victoire
-function checkWin() {
-  const imgs = puzzle.querySelectorAll(".piece");
-  let solved = true;
-  imgs.forEach((img, index) => {
-    if (parseInt(img.dataset.correct) !== index + 1) solved = false;
-  });
-
-  if (solved) {
-    // On enlève l'alerte et on ajoute la classe .open
-    document.querySelector(".p-page").classList.add("open");
-    document.querySelector(".pu-p").classList.add("open");
-  }
-}
-
-// 5️⃣ Bouton recommencer
-restartBtn.addEventListener("click", renderPuzzle);
-
-// 6️⃣ Initialisation
-loadPieces();
-renderPuzzle();

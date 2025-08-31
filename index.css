@@ -183,6 +183,10 @@ header {
   pointer-events: all !important;
 }
 
+.burger-menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .burger-menu-button.visible {
   color: black;
   pointer-events: all;
@@ -200,6 +204,7 @@ header {
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
+  pointer-events: none;
 }
 
 /* ----- BURGER MENU ----- */
@@ -361,7 +366,7 @@ main {
   z-index: 11;
 }
 
-/* PUZZLE  */
+/* ---------------------------------------------- PUZZLE ---------------------------------------------- */
 
 .pu-p {
   background-color: rgb(24, 24, 24);
@@ -381,8 +386,8 @@ main {
 
 #puzzle {
   display: grid;
-  grid-template-columns: repeat(5, 100px);
-  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(5, 210px);
+  grid-template-rows: repeat(3, 210px);
   /* gap: 2px; */
   position: absolute;
   right: 50%;
@@ -391,29 +396,81 @@ main {
 }
 
 .piece {
-  width: 100px;
-  height: 100px;
+  width: 210px;
+  height: 210px;
   object-fit: cover;
   border: 1px solid #333;
   cursor: grab;
 }
 
-#restart {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #444;
-  color: #fff;
-  border: none;
+.restart {
+  opacity: 0;
+  pointer-events: none;
+  background: #ffffff;
+  color: #000000;
   cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
+  border-radius: 50%;
+  position: fixed;
+  width: 5%;
+  aspect-ratio: 1/1;
+  right: 2%;
+  top: 13%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  z-index: 20;
 }
 
-#restart:hover {
-  background: #666;
+.restart.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.restart.visible:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* --------------- CHECK BUTTON --------------- */
+
+.check {
+  opacity: 0;
+  pointer-events: none;
+  background: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  border-radius: 50%;
+  position: fixed;
+  width: 5%;
+  aspect-ratio: 1/1;
+  right: 2%;
+  top: 13%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  z-index: 20;
+}
+
+.check.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.check.visible:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* ---------------------------------------------- PORTFOLIO PAGE ---------------------------------------------- */
+
+#portfolio {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 100vh;
+}
 
 .p-page {
   background-color: rgb(24, 24, 24);
