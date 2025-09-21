@@ -86,125 +86,119 @@ burgerMenuButton.onclick = function () {
 
 // -------------- PUZZLE ---------------
 
-const puzzle = document.getElementById("puzzle");
-let pieces = [];
+// const puzzle = document.getElementById("puzzle");
+// let pieces = [];
 
-// 1️⃣ Créer les pièces
-function loadPieces() {
-  pieces = [];
-  for (let i = 1; i <= 15; i++) {
-    const img = document.createElement("img");
-    img.src = `pieces/piece-${i}.png`; // tes images ici
-    img.classList.add("piece");
-    img.draggable = true;
-    img.dataset.correct = i; // position correcte
-    pieces.push(img);
-  }
-}
+// function loadPieces() {
+//   pieces = [];
+//   for (let i = 1; i <= 15; i++) {
+//     const img = document.createElement("img");
+//     img.src = `pieces/piece-${i}.png`;
+//     img.classList.add("piece");
+//     img.draggable = true;
+//     img.dataset.correct = i;
+//     pieces.push(img);
+//   }
+// }
 
-// 2️⃣ Mélanger et afficher
-function renderPuzzle() {
-  puzzle.innerHTML = "";
-  pieces.sort(() => Math.random() - 0.5).forEach((p) => puzzle.appendChild(p));
-}
+// function renderPuzzle() {
+//   puzzle.innerHTML = "";
+//   pieces.sort(() => Math.random() - 0.5).forEach((p) => puzzle.appendChild(p));
+// }
 
-// 3️⃣ Drag & Drop (échange complet des éléments)
-let dragged = null;
+// let dragged = null;
 
-puzzle.addEventListener("dragstart", (e) => {
-  if (e.target.classList.contains("piece")) dragged = e.target;
-});
+// puzzle.addEventListener("dragstart", (e) => {
+//   if (e.target.classList.contains("piece")) dragged = e.target;
+// });
 
-puzzle.addEventListener("dragover", (e) => {
-  e.preventDefault();
-});
+// puzzle.addEventListener("dragover", (e) => {
+//   e.preventDefault();
+// });
 
-puzzle.addEventListener("drop", (e) => {
-  if (e.target.classList.contains("piece") && dragged) {
-    // échange complet des éléments dans le DOM
-    const draggedClone = dragged.cloneNode(true);
-    const targetClone = e.target.cloneNode(true);
+// puzzle.addEventListener("drop", (e) => {
+//   if (e.target.classList.contains("piece") && dragged) {
+//     const draggedClone = dragged.cloneNode(true);
+//     const targetClone = e.target.cloneNode(true);
 
-    puzzle.replaceChild(draggedClone, e.target);
-    puzzle.replaceChild(targetClone, dragged);
+//     puzzle.replaceChild(draggedClone, e.target);
+//     puzzle.replaceChild(targetClone, dragged);
 
-    checkWin();
-  }
-});
+//     checkWin();
+//   }
+// });
 
-// 4️⃣ Vérifier victoire
-function checkWin() {
-  const imgs = puzzle.querySelectorAll(".piece");
-  let solved = true;
-  imgs.forEach((img, index) => {
-    if (parseInt(img.dataset.correct) !== index + 1) solved = false;
-  });
+// function checkWin() {
+//   const imgs = puzzle.querySelectorAll(".piece");
+//   let solved = true;
+//   imgs.forEach((img, index) => {
+//     if (parseInt(img.dataset.correct) !== index + 1) solved = false;
+//   });
 
-  if (solved) {
-    document.querySelector(".p-page").classList.add("open");
-    document.querySelector(".pu-p").classList.add("open");
-  }
-}
+//   if (solved) {
+//     document.querySelector(".p-page").classList.add("open");
+//     document.querySelector(".pu-p").classList.add("open");
+//   }
+// }
 
-// 6️⃣ Initialisation
-loadPieces();
-renderPuzzle();
+// loadPieces();
+// renderPuzzle();
 
 // --------------- BUTTON RESTART ---------------
 
-const PPortfolio = document.querySelector(".p-page");
-const RestartB = document.querySelector(".restart");
+// const PPortfolio = document.querySelector(".p-page");
+// const RestartB = document.querySelector(".restart");
 
-RestartB.onclick = function () {
-  document.querySelector(".p-page").classList.remove("open");
-  document.querySelector(".pu-p").classList.remove("open");
-};
+// RestartB.onclick = function () {
+//   document.querySelector(".p-page").classList.remove("open");
+//   document.querySelector(".pu-p").classList.remove("open");
+// };
 
-RestartB.addEventListener("click", renderPuzzle);
+// RestartB.addEventListener("click", renderPuzzle);
 
-const observerP = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        RestartB.classList.remove("visible");
-      } else {
-        RestartB.classList.add("visible");
-      }
-    });
-  },
-  {
-    threshold: 0.6,
-  }
-);
+// const observerP = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       if (!entry.isIntersecting) {
+//         RestartB.classList.remove("visible");
+//       } else {
+//         RestartB.classList.add("visible");
+//       }
+//     });
+//   },
+//   {
+//     threshold: 0.6,
+//   }
+// );
 
-observerP.observe(PPortfolio);
+// observerP.observe(PPortfolio);
 
 // --------------- BUTTON CHECK ---------------
 
-const CheckB = document.querySelector(".check");
-const PPuzzle = document.querySelector(".pu-p");
+// const CheckB = document.querySelector(".check");
+// const PPuzzle = document.querySelector(".pu-p");
 
-CheckB.onclick = function () {
-  document.querySelector(".p-page").classList.add("open");
-  document.querySelector(".pu-p").classList.add("open");
-};
+// CheckB.onclick = function () {
+//   document.querySelector(".p-page").classList.add("open");
+//   document.querySelector(".pu-p").classList.add("open");
+// };
 
-const observerPu = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        CheckB.classList.remove("visible");
-      } else {
-        CheckB.classList.add("visible");
-      }
-    });
-  },
-  {
-    threshold: 0.6,
-  }
-);
+// const observerPu = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       if (!entry.isIntersecting) {
+//         CheckB.classList.remove("visible");
+//       } else {
+//         CheckB.classList.add("visible");
+//       }
+//     });
+//   },
+//   {
+//     threshold: 0.6,
+//   }
+// );
 
-observerPu.observe(PPuzzle);
+// observerPu.observe(PPuzzle);
 
 // --------------- CARDS SYSTEMS ---------------
 

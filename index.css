@@ -116,6 +116,7 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
+  display: block;
 }
 
 .navbar .links {
@@ -334,13 +335,15 @@ main {
   top: 63%;
   right: 50%;
   z-index: 5;
-  font-size: 18.57rem;
+  /* font-size: 18.57rem; */
+  font-size: 23vw;
   width: 100vw;
+
   font-family: "Bebas";
 }
 
 .home .obj .flou {
-  height: 200px;
+  height: 25%;
   background: linear-gradient(
     180deg,
     hsla(0, 0%, 100%, 0) 0,
@@ -349,7 +352,7 @@ main {
   );
   position: absolute;
   transform: translate(50%, -50%);
-  top: 58%;
+  top: 61%;
   right: 50%;
   width: 100vw;
   z-index: 9;
@@ -368,10 +371,10 @@ main {
 
 /* ---------------------------------------------- PUZZLE ---------------------------------------------- */
 
-.pu-p {
+/* .pu-p {
   background-color: rgb(24, 24, 24);
   display: block;
-  /* transform: scale(0.8) translateY(30px); */
+  
   transition: all 0.8s ease-in-out;
   height: 100vh;
   width: 100vw;
@@ -388,7 +391,7 @@ main {
   display: grid;
   grid-template-columns: repeat(5, 210px);
   grid-template-rows: repeat(3, 210px);
-  /* gap: 2px; */
+ 
   position: absolute;
   right: 50%;
   top: 50%;
@@ -430,11 +433,11 @@ main {
 
 .restart.visible:hover {
   background-color: rgba(255, 255, 255, 0.5);
-}
+} */
 
 /* --------------- CHECK BUTTON --------------- */
 
-.check {
+/* .check {
   opacity: 0;
   pointer-events: none;
   background: #ffffff;
@@ -461,7 +464,7 @@ main {
 
 .check.visible:hover {
   background-color: rgba(255, 255, 255, 0.5);
-}
+} */
 
 /* ---------------------------------------------- PORTFOLIO PAGE ---------------------------------------------- */
 
@@ -470,24 +473,18 @@ main {
   height: 100vh;
   position: absolute;
   top: 100vh;
+  display: block;
 }
 
 .p-page {
   background-color: rgb(24, 24, 24);
-  display: none;
+  display: block;
   height: 100vh;
   width: 100vw;
   position: relative;
   margin: 0;
 
-  transform: scale(0.8) translateY(30px);
   transition: all 0.8s ease-in-out; /* durée + easing */
-}
-
-.p-page.open {
-  display: block;
-
-  transform: scale(1) translateY(0);
 }
 
 .p-page .cards {
@@ -825,10 +822,10 @@ main {
 .p-page .cards .dessin .page .text-d-2 {
   position: absolute;
   width: 85%;
-  height: 10%;
+  height: auto;
   right: 8%;
   margin: 7%;
-  top: 68%;
+  top: 73%;
 }
 
 .p-page .cards .dessin .page .text-d-2 h1 {
@@ -1012,11 +1009,11 @@ main {
 .p-page .cards .maquette .page {
   display: none;
   background-color: rgb(37, 36, 36);
-  height: 200%;
+  height: 150%;
   width: 100%;
   z-index: 120;
   position: absolute;
-  bottom: -160%;
+  bottom: -110%;
   border-radius: 50px 50px 0 0;
   overflow: hidden;
 }
@@ -1046,10 +1043,10 @@ main {
 /* ----- CONTENT ----- */
 
 .p-page .cards .maquette .page .carousel {
-  top: 25%;
-  left: 17%;
+  top: 28%;
+  left: 25%;
   position: absolute;
-  width: 30%;
+  width: 50%;
   height: 27%;
   /* overflow: hidden; */
 }
@@ -1106,6 +1103,46 @@ main {
 
 .p-page .cards .maquette .page .dots button[aria-selected="true"] {
   background: #fff;
+}
+
+.p-page .cards .maquette .page .text-m-1 {
+  width: 45%;
+  height: auto;
+  position: absolute;
+  left: 5%;
+  top: 69%;
+}
+
+.p-page .cards .maquette .page .text-m-1 h1 {
+  margin: 2%;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 21%;
+  width: 80%;
+}
+
+.p-page .cards .maquette .page .text-m-2 {
+  width: 45%;
+  height: auto;
+  position: absolute;
+  right: 5%;
+  top: 69%;
+}
+
+.p-page .cards .maquette .page .text-m-2 h1 {
+  margin: 2%;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 21%;
+  width: 80%;
 }
 
 /* ----- PAGE UP ----- */
@@ -1468,7 +1505,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .p-page .cards .p-scolaire .page .p-up {
   position: absolute;
-  bottom: -5%;
+  bottom: -4.5%;
   right: 50%;
   background-color: rgba(230, 230, 230, 0.477);
   border: solid 1px white;
@@ -1633,11 +1670,11 @@ video::-webkit-media-controls-fullscreen-button {
 .p-page .cards .c-3d .page {
   display: none;
   background-color: rgb(37, 36, 36);
-  height: 200%;
+  height: 175%;
   width: 100%;
   z-index: 12;
   position: absolute;
-  bottom: -160%;
+  bottom: -135%;
   border-radius: 50px 50px 0 0;
   overflow: hidden;
 }
@@ -1664,11 +1701,81 @@ video::-webkit-media-controls-fullscreen-button {
   top: 200px;
 }
 
+/* ----- CONTENT ----- */
+
+.p-page .cards .c-3d .page .img-c3-1 {
+  width: 45%;
+  height: 30%;
+
+  position: absolute;
+  top: 28%;
+  left: 5%;
+}
+
+.p-page .cards .c-3d .page .img-c3-1 img {
+  width: 100%;
+}
+
+.p-page .cards .c-3d .page .text-c3-1 {
+  width: 40%;
+  height: 30%;
+
+  position: absolute;
+  top: 28%;
+  right: 5%;
+}
+
+.p-page .cards .c-3d .page .text-c3-1 h1 {
+  margin: 2%;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 24%;
+  width: 80%;
+}
+
+.p-page .cards .c-3d .page .img-c3-2 {
+  width: 45%;
+  height: 30%;
+
+  position: absolute;
+  top: 63%;
+  right: 5%;
+}
+
+.p-page .cards .c-3d .page .img-c3-2 img {
+  width: 100%;
+}
+
+.p-page .cards .c-3d .page .text-c3-2 {
+  width: 40%;
+  height: 30%;
+
+  position: absolute;
+  top: 63%;
+  left: 5%;
+}
+
+.p-page .cards .c-3d .page .text-c3-2 h1 {
+  margin: 2%;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Open";
+  text-align: justify;
+  text-justify: inter-word;
+  position: absolute;
+  top: 27%;
+  width: 80%;
+}
+
 /* ----- PAGE UP ----- */
 
 .p-page .cards .c-3d .page .p-up {
   position: absolute;
-  bottom: -13%;
+  bottom: -12%;
   right: 50%;
   background-color: rgba(230, 230, 230, 0.477);
   border: solid 1px white;
@@ -1923,282 +2030,110 @@ video::-webkit-media-controls-fullscreen-button {
   border-radius: 30px;
 }
 
-.p-page .cards .photo .page .img-photo .img-photo-1 {
+/* Styles communs pour toutes les images */
+.p-page .cards .photo .page .img-photo [class^="img-photo-"] {
   position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Placement en grille (unique à chaque image) */
+.img-photo-1 {
   grid-column: 1;
   grid-row: 1;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
-
-.p-page .cards .photo .page .img-photo .img-photo-1 .bar-p {
-  position: absolute;
-  right: 25%;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-1 .bar-p h1 {
-  font-size: 0.8rem;
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translate(20%, -50%);
-  font-family: "Open";
-  color: white;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-2 {
-  position: relative;
+.img-photo-2 {
   grid-column: 2;
   grid-row: 1;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
-
-.p-page .cards .photo .page .img-photo .img-photo-2 .bar-p {
-  position: absolute;
-  right: 25%;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-2 .bar-p h1 {
-  font-size: 0.8rem;
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translate(20%, -50%);
-  font-family: "Open";
-  color: white;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-3 {
-  position: relative;
+.img-photo-3 {
   grid-column: 3;
   grid-row: 1;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
-
-.p-page .cards .photo .page .img-photo .img-photo-3 .bar-p {
-  position: absolute;
-  right: 25%;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-3 .bar-p h1 {
-  font-size: 0.8rem;
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translate(20%, -50%);
-  font-family: "Open";
-  color: white;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-4 {
-  position: relative;
+.img-photo-4 {
   grid-column: 2;
   grid-row: 2;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
-
-.p-page .cards .photo .page .img-photo .img-photo-4 .bar-p {
-  position: absolute;
-  right: 25%;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-4 .bar-p h1 {
-  font-size: 0.8rem;
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translate(20%, -50%);
-  font-family: "Open";
-  color: white;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-5 {
-  position: relative;
+.img-photo-5 {
   grid-column: 3;
   grid-row: 2;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
-
-.p-page .cards .photo .page .img-photo .img-photo-5 .bar-p {
-  position: absolute;
-  right: 25%;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-5 .bar-p h1 {
-  font-size: 0.8rem;
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translate(20%, -50%);
-  font-family: "Open";
-  color: white;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-6 {
-  position: relative;
+.img-photo-6 {
   grid-column: 4;
   grid-row: 2;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
-
-.p-page .cards .photo .page .img-photo .img-photo-6 .bar-p {
-  position: absolute;
-  right: 25%;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-6 .bar-p h1 {
-  font-size: 0.8rem;
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translate(20%, -50%);
-  font-family: "Open";
-  color: white;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-7 {
-  position: relative;
+.img-photo-7 {
   grid-column: 1;
   grid-row: 3;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
-
-.p-page .cards .photo .page .img-photo .img-photo-7 .bar-p {
-  position: absolute;
-  right: 25%;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-7 .bar-p h1 {
-  font-size: 0.8rem;
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translate(20%, -50%);
-  font-family: "Open";
-  color: white;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-8 {
-  position: relative;
+.img-photo-8 {
   grid-column: 2;
   grid-row: 3;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
-
-.p-page .cards .photo .page .img-photo .img-photo-8 .bar-p {
-  position: absolute;
-  right: 25%;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-8 .bar-p h1 {
-  font-size: 0.8rem;
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translate(20%, -50%);
-  font-family: "Open";
-  color: white;
-}
-
-.p-page .cards .photo .page .img-photo .img-photo-9 {
-  position: relative;
+.img-photo-9 {
   grid-column: 3;
   grid-row: 3;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
 
-.p-page .cards .photo .page .img-photo .img-photo-9 .bar-p {
+/* Barres sur les images */
+.p-page .cards .photo .page .img-photo [class^="img-photo-"] .bar-p {
   position: absolute;
   right: 25%;
 }
 
-.p-page .cards .photo .page .img-photo .img-photo-9 .bar-p h1 {
+.p-page .cards .photo .page .img-photo [class^="img-photo-"] .bar-p h1 {
   font-size: 0.8rem;
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translate(20%, -50%);
   font-family: "Open";
   color: white;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(20%, -50%);
 }
 
-.p-page .cards .photo .page .img-photo .text-photo-1 {
-  grid-column: 4;
-  grid-row: 1;
+/* Textes associés */
+.p-page .cards .photo .page .img-photo [class^="text-photo-"] {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.p-page .cards .photo .page .img-photo .text-photo-1 h1 {
-  right: 0;
+.text-photo-1 {
+  grid-column: 4;
+  grid-row: 1;
+}
+.text-photo-2 {
+  grid-column: 1;
+  grid-row: 2;
+}
+.text-photo-3 {
+  grid-column: 4;
+  grid-row: 3;
+}
 
-  color: white;
-  font-size: 1.1rem;
-  font-family: "Open";
-  text-align: justify;
-  text-justify: inter-word;
+/* Style des textes */
+.p-page .cards .photo .page .img-photo [class^="text-photo-"] h1 {
   position: absolute;
   top: 2.5%;
+  font-size: 1.1rem;
+  font-family: "Open";
+  color: white;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
-.p-page .cards .photo .page .img-photo .text-photo-2 {
-  grid-column: 1;
-  grid-row: 2;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+/* Ajustements spécifiques */
+.text-photo-1 h1,
+.text-photo-3 h1 {
+  right: 0;
 }
-
-.p-page .cards .photo .page .img-photo .text-photo-2 h1 {
+.text-photo-2 h1 {
   left: 0;
   height: 100%;
   margin-right: 10%;
-  color: white;
-  font-size: 1.1rem;
-  font-family: "Open";
-  text-align: justify;
-  text-justify: inter-word;
-  position: absolute;
-  top: 2.5%;
 }
 
-.p-page .cards .photo .page .img-photo .text-photo-3 {
-  grid-column: 4;
-  grid-row: 3;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.p-page .cards .photo .page .img-photo .text-photo-3 h1 {
-  right: 0;
-
-  color: white;
-  font-size: 1.1rem;
-  font-family: "Open";
-  text-align: justify;
-  text-justify: inter-word;
-  position: absolute;
-  top: 2.5%;
-}
 /* ----- PAGE UP ----- */
 
 .p-page .cards .photo .page .p-up {
@@ -2441,6 +2376,7 @@ video::-webkit-media-controls-fullscreen-button {
   margin: 0;
   display: grid;
   grid-template-columns: 40% 60%;
+  display: block;
 }
 
 .a-propos .me {
@@ -2514,6 +2450,7 @@ video::-webkit-media-controls-fullscreen-button {
   position: relative;
   margin: 0;
   /* border: solid 1px red; */
+  display: block;
 }
 
 .contact h1 {
@@ -2659,6 +2596,7 @@ footer {
   width: 100vw;
   background-color: rgb(221, 220, 220);
   position: relative;
+  display: block;
 }
 
 .links-f {
@@ -2737,4 +2675,98 @@ footer {
 .mention h1 {
   color: rgb(87, 87, 87);
   text-decoration: none;
+}
+
+/* --------------------- RESPONSIVE --------------------- */
+
+@media screen and (max-width: 1050px) {
+  .home img {
+    top: 43%;
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .home img {
+    top: 43%;
+    width: 38%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .home img {
+    top: 43%;
+    width: 44%;
+  }
+  .home .obj h1 {
+    top: 65%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .navbar .links a {
+    font-size: 1rem;
+  }
+  .home img {
+    top: 43%;
+    width: 50%;
+  }
+  .home .obj h1 {
+    top: 67%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .navbar {
+    display: none;
+  }
+  .burger-menu-button.visible {
+    display: block;
+    /* transform: translate(-200%, 0%); */
+    width: 10%;
+  }
+  .home {
+    margin-top: 7vh;
+  }
+  .home img {
+    top: 43%;
+    width: 58%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home {
+    margin-top: 9vh;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .home img {
+    top: 43%;
+    width: 67%;
+  }
+  .home .obj h1 {
+    top: 69%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home img {
+    top: 43%;
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .home img {
+    top: 43%;
+    width: 84%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .home img {
+    top: 43%;
+    width: 90%;
+  }
 }
